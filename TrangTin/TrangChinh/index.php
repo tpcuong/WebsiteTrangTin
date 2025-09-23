@@ -1,22 +1,20 @@
-<?php include 'config.php'; ?>
+<?php
+include 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tin Công Nghệ - Trang tin công nghệ hàng đầu Việt Nam</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <!-- Header -->
+
     <header class="header">
         <div class="container">
             <div class="header-top">
-                <div class="logo">
-                    <h1>TinCôngNghệ</h1>
-                </div>
+                <div class="logo"><h1>Tech-News</h1></div>
                 <div class="search-box">
                     <input type="text" placeholder="Tìm kiếm tin tức...">
                     <button>Tìm kiếm</button>
@@ -37,122 +35,80 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Featured Article -->
-            <section class="featured-article">
-                <article class="featured-post">
-                    <img src="https://placeholder-image-service.onrender.com/image/800x400?prompt=Công nghệ AI hiện đại với robot và trí tuệ nhân tạo&id=genk-featured-1"
-                        alt="Công nghệ AI hiện đại với robot và trí tuệ nhân tạo">
-                    <div class="featured-content">
-                        <h2>AI sẽ thay đổi hoàn toàn cách chúng ta làm việc trong 5 năm tới</h2>
-                        <p>Các chuyên gia dự đoán trí tuệ nhân tạo sẽ tạo ra bước đột phá lớn trong mọi lĩnh vực, từ y
-                            tế đến giáo dục và sản xuất.</p>
-                        <div class="post-meta">
-                            <span class="author">Minh Tuấn</span>
-                            <span class="date">12 giờ trước</span>
-                            <span class="comments">42 bình luận</span>
-                        </div>
-                    </div>
-                </article>
-            </section>
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="main-content">
+    <!-- Banner trái -->
+    <div class="left-banner">
+        <p>Quảng cáo</p>
+        <img src="ads.jpg" alt="Banner" style="width:100%; border-radius:8px;">
+    </div>
 
-            <!-- Latest News -->
-            <section class="latest-news">
-                <h2 class="section-title">Tin mới nhất</h2>
-                <div class="news-grid">
-                    <?php
-                    $stmt = $pdo->query("SELECT * FROM baiviet ORDER BY publish_date DESC LIMIT 4");
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo '
-                        <article class="news-card">
-                            <img src="' . $row['image'] . '" alt="' . $row['title'] . '">
-                            <div class="news-content">
-                                <h3>' . $row['title'] . '</h3>
-                                <p>' . substr($row['content'], 0, 100) . '...</p>
-                                <div class="post-meta">
-                                    <span class="date">' . date('H:i d/m', strtotime($row['publish_date'])) . ' trước</span>
-                                    <span class="comments">' . $row['comments_count'] . ' bình luận</span>
-                                </div>
-                            </div>
-                        </article>';
-                    }
-                    ?>
-                </div>
-            </section>
+    <!-- Tin tức bên trái (2 bài / hàng) -->
+    <div class="latest-news-left">
+        <div class="news-card">
+            <img src="thumb1.jpg" class="news-image" alt="">
+            <div class="news-content">
+                <div class="news-meta">Kiến tạo Đất nước - Tin ICT</div>
+                <h2 class="news-title">Tiêu đề bài viết 1</h2>
+                <p class="news-excerpt">Mô tả ngắn...</p>
+                <div class="news-time">2 giờ trước</div>
+            </div>
         </div>
+
+        <div class="news-card">
+            <img src="thumb2.jpg" class="news-image" alt="">
+            <div class="news-content">
+                <div class="news-meta">Trà đá công nghệ</div>
+                <h2 class="news-title">Tiêu đề bài viết 2</h2>
+                <p class="news-excerpt">Mô tả ngắn...</p>
+                <div class="news-time">3 giờ trước</div>
+            </div>
+        </div>
+
+        <!-- Thêm tin khác... -->
+    </div>
+
+    <!-- Cột phải -->
+    <div class="latest-news-right">
+        <div class="category-box">
+            <h3>Mobile</h3>
+            <div class="category-main">
+                <img src="mobile1.jpg" alt="">
+                <div>
+                    <h4>Smartphone này có camera cực dị</h4>
+                </div>
+            </div>
+            <div class="category-list">
+                <a href="#">vivo sắp ra mắt flagship mới...</a>
+                <a href="#">Apple phát hành iOS 26.1 beta...</a>
+            </div>
+        </div>
+        
+        <div class="category-box">
+            <h3>AI</h3>
+            <div class="category-main">
+                <img src="ai1.jpg" alt="">
+                <div>
+                    <h4>Cloudflare: Trên không gian mạng...</h4>
+                </div>
+            </div>
+            <div class="category-list">
+                <a href="#">Chatbot AI có 'ngôn điên'?</a>
+                <a href="#">FPT đầu tư chiến lược...</a>
+            </div>
+        </div>
+    </div>
+</div>
+
     </main>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="container">
-            <div class="sidebar-section">
-                <h3>Tin hot</h3>
-                <ul class="hot-news">
-                    <li>
-                        <span class="hot-number">1</span>
-                        <a href="#">iPhone 16 sẽ có thiết kế hoàn toàn mới</a>
-                    </li>
-                    <li>
-                        <span class="hot-number">2</span>
-                        <a href="#">Windows 12 dự kiến ra mắt vào cuối năm</a>
-                    </li>
-                    <li>
-                        <span class="hot-number">3</span>
-                        <a href="#">Tesla chuẩn bị ra mắt ô tô điện giá rẻ</a>
-                    </li>
-                    <li>
-                        <span class="hot-number">4</span>
-                        <a href="#">Google thử nghiệm tính năng AI trong Gmail</a>
-                    </li>
-                    <li>
-                        <span class="hot-number">5</span>
-                        <a href="#">Meta công bố kính thực tế ảo mới</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Đọc nhiều nhất</h3>
-                <div class="popular-posts">
-                    <div class="popular-post">
-                        <img src="https://placeholder-image-service.onrender.com/image/100x70?prompt=Robot công nghiệp trong nhà máy&id=genk-popular-1"
-                            alt="Robot công nghiệp trong nhà máy">
-                        <div class="popular-content">
-                            <h4>Cách robot đang thay thế con người trong sản xuất</h4>
-                            <span class="views">12K lượt xem</span>
-                        </div>
-                    </div>
-                    <div class="popular-post">
-                        <img src="https://placeholder-image-service.onrender.com/image/100x70?prompt=Thiết bị điện tử thông minh trong nhà&id=genk-popular-2"
-                            alt="Thiết bị điện tử thông minh trong nhà">
-                        <div class="popular-content">
-                            <h4>10 thiết bị smart home đáng mua nhất 2024</h4>
-                            <span class="views">9.5K lượt xem</span>
-                        </div>
-                    </div>
-                    <div class="popular-post">
-                        <img src="https://placeholder-image-service.onrender.com/image/100x70?prompt=Máy ảnh kỹ thuật số chuyên nghiệp&id=genk-popular-3"
-                            alt="Máy ảnh kỹ thuật số chuyên nghiệp">
-                        <div class="popular-content">
-                            <h4>Đánh giá Canon EOS R5: Có đáng tiền?</h4>
-                            <span class="views">8.2K lượt xem</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Footer -->
-    <footer class="footer">
+   <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Về chúng tôi</h4>
-                    <p>TinCôngNghệ - Trang tin công nghệ hàng đầu Việt Nam, cập nhật những tin tức mới nhất về công
-                        nghệ, điện tử, phần mềm và game.</p>
+                    <p>TinCôngNghệ - Trang tin công nghệ hàng đầu Việt Nam, cập nhật những tin tức mới nhất về công nghệ, điện tử, phần mềm và game.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Liên kết nhanh</h4>
@@ -174,10 +130,11 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 TinCôngNghệ. All rights reserved.</p>
+                <p>&copy; <?= date('Y') ?> TinCôngNghệ. All rights reserved.</p>
             </div>
         </div>
     </footer>
-</body>
 
+
+</body>
 </html>
