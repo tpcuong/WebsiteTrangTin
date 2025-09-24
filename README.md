@@ -4,69 +4,72 @@ Hướng dẫn cài đặt và sử dụng dự án **WebsiteTrangTin** trên lo
 
 ---
 
+## Mục lục
+
+* [1. Cách dùng Git Bash đẩy code lên Git](#1-cách-dùng-git-bash-đẩy-code-lên-git)
+* [2. Cơ sở dữ liệu MySQL trên Vertrigo](#2-cơ-sở-dữ-liệu-mysql-trên-vertrigo)
+* [3. Tham khảo](#3-tham-khảo)
+
+---
+
 ## 1. Cách dùng Git Bash đẩy code lên Git
 
-**URL của repository:**  
+**URL của repository:**
 https://github.com/tpcuong/WebsiteTrangTin.git
 
-### Bước 1: Mở terminal hoặc Git Bash
-Chuyển đến thư mục mà bạn muốn lưu project:
+### Hướng dẫn
+
+1.  **Mở terminal hoặc Git Bash** và di chuyển đến thư mục bạn muốn lưu project:
+    ```bash
+    cd /path/to/your/folder
+    ```
+2.  **Clone repository về máy** bằng lệnh sau. Lệnh này sẽ tạo một thư mục `WebsiteTrangTin` và tải toàn bộ code về.
+    ```bash
+    git clone [https://github.com/tpcuong/WebsiteTrangTin.git](https://github.com/tpcuong/WebsiteTrangTin.git)
+    ```
+3.  **Vào thư mục project** để bắt đầu thao tác với Git:
+    ```bash
+    cd WebsiteTrangTin
+    ```
+
+### Các câu lệnh Git thường dùng
+
 ```bash
-cd /path/to/your/folder
-Bước 2: Clone repository về máy
-bash
-Copy code
-git clone https://github.com/tpcuong/WebsiteTrangTin.git
-Git sẽ tạo một thư mục WebsiteTrangTin trong folder hiện tại và tải toàn bộ code, commit, branch về máy.
+# Kiểm tra trạng thái các file đã thay đổi
+git status
 
-Bước 3: Vào thư mục project
-bash
-Copy code
-cd WebsiteTrangTin
-Bây giờ bạn đã có repo local và có thể thao tác với Git bình thường:
+# Thêm tất cả các file đã thay đổi vào vùng đệm (stage)
+git add .
 
-bash
-Copy code
-git status   # Kiểm tra trạng thái file
-git add .    # Thêm tất cả file vào stage
-git commit -m "Initial commit"  # Commit các thay đổi với thông điệp
-git push     # Đẩy code lên GitHub
-git pull     # Lấy các thay đổi mới nhất từ remote
-Bước 4: Các câu lệnh Git thường dùng
-git status → Kiểm tra trạng thái tất cả file
+# Ghi lại các thay đổi với một thông điệp
+git commit -m "Initial commit"
 
-git add . → Thêm tất cả file vào stage
+# Đẩy code lên GitHub
+git push
 
-git commit -m "..." → Commit các thay đổi với comment
+# Lấy các thay đổi mới nhất từ repository
+git pull
+```
+## 2. Cơ sở dữ liệu MySQL trên Vertrigo
+1. **Cài đặt và mở Vertrigo**
+Truy cập các địa chỉ sau trên trình duyệt:
 
-git push → Đẩy code/file lên GitHub
+Trang chủ:
+```bash
+http://127.0.0.1/ hoặc http://localhost/
 
-git pull → Lấy các thay đổi mới nhất từ remote
-
-Bước 5: Tham khảo hướng dẫn
-Hướng dẫn Git chi tiết (Video)
-
-2. Cơ sở dữ liệu MySQL trên Vertrigo
-Bước 1: Cài đặt và mở Vertrigo
-Truy cập index:
-
-cpp
-Copy code
-http://127.0.0.1/ 
-hoặc
-http://localhost/
-Truy cập phpMyAdmin:
-
-arduino
-Copy code
-http://127.0.0.1/phpmyadmin/
+phpMyAdmin: http://127.0.0.1/phpmyadmin/
+```
+Thông tin đăng nhập mặc định:
+```bash
 Username: root
 
 Password: vertrigo
+```
+2. **Hướng dẫn sử dụng database**
+Tạo database mới:
+Tạo một database mới (ví dụ: tincongnghe_db).
+Lưu ý: Tên database mới phải trùng với tên database được sử dụng trong dự án.
 
-Bước 2: Hướng dẫn dùng database
-Tạo database mới (ví dụ: tincongnghe_db)
-
-Lưu ý: Tên database mới phải trùng với tên database dùng trong dự án.
-
-Chọn mục Import để import dữ liệu của dự án vào database.
+Import dữ liệu:
+Chọn database vừa tạo, sau đó chọn mục Import để tải file dữ liệu (.sql) của dự án lên database.
