@@ -68,7 +68,9 @@ Password: vertrigo
 ```
 2. **Hướng dẫn sử dụng database**
 Tạo database mới:
+
 Tạo một database mới (ví dụ: tincongnghe_db).
+
 Lưu ý: Tên database mới phải trùng với tên database được sử dụng trong dự án.
 
 Import dữ liệu:
