@@ -1,0 +1,105 @@
+/* Layout 2 cột */
+.main-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+}
+
+/* Nội dung bài viết */
+.post-detail {
+  flex: 3;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.post-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 6px;
+}
+
+.excerpt {
+  font-style: italic;
+  font-size: 17px;
+  color: #444;
+  margin: 15px 0;
+  padding: 10px 15px;
+  background: #f9f9f9;
+  border-left: 4px solid #ff6600;
+}
+
+.post-content p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.post-content img.content-img {
+  max-width: 100%;
+  margin: 15px auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* Sidebar */
+.right-sidebar {
+  flex: 1;
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.right-sidebar h2.section-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ff6600;
+  padding-bottom: 5px;
+}
+
+.hot-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.hot-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.hot-info h4 {
+  font-size: 15px;
+  margin: 0;
+}
+
+.hot-info a {
+  color: #333;
+  text-decoration: none;
+}
+
+.hot-info a:hover {
+  color: #ff6600;
+}
