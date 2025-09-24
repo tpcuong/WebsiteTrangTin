@@ -11,6 +11,6 @@ https://github.com/tpcuong/WebsiteTrangTin.git
 
 ### Bước 1: Mở terminal hoặc Git Bash
 Chuyển đến thư mục mà bạn muốn lưu project:
-```bash
-cd /path/to/your/folder
-Bước 2: Clone repository về máy
+`bash
+cd /path/to/your/folder'
+
