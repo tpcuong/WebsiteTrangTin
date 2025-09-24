@@ -26,5 +26,4 @@ git push  ( Đẩy code/file lên Git )
    Creat database mới (VD: tincongnghe_db)
    Lưu ý: Tên Database mới với trùng tên database dùng trong dự án.
    Sau đó chọn mục Import để import dữ liệu của dự án lên database.
-
    
