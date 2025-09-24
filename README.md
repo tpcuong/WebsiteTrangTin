@@ -13,3 +13,4 @@ https://github.com/tpcuong/WebsiteTrangTin.git
 Chuyển đến thư mục mà bạn muốn lưu project:
 ```bash
 cd /path/to/your/folder
+Bước 2: Clone repository về máy
