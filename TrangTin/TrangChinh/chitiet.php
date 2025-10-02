@@ -47,51 +47,21 @@ foreach ($blocks as $index => $block) {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_ct.css">
     <style>
-        .quick-nav {
-    background: #f1f3f5;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 25px 0;
-    border-left: 4px solid #ff6600; /* Đổi màu cho hợp tone */
-}
-.quick-nav h3 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    cursor: pointer;
-}
-.quick-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.quick-nav ul li a {
-    padding: 5px 0;
-    display: block;
-    color: #007bff;
-    text-decoration: none;
-}
-.quick-nav ul li a:hover {
-    text-decoration: underline;
-}
-    </style>
-	
-	<style>
-	.post-content .image-block {
-    clear: both; /* Đảm bảo ảnh luôn tách bạch khỏi văn bản */
-    margin: 30px 0; /* Tăng khoảng cách trên dưới cho ảnh */
-    text-align: center;
-}
+        .quick-nav { background: #f1f3f5; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #ff6600; }
+        .quick-nav h3 { margin: 0 0 10px; font-size: 18px; cursor: pointer; }
+        .quick-nav ul { list-style: none; padding: 0; margin: 0; }
+        .quick-nav ul li a { padding: 5px 0; display: block; color: #007bff; text-decoration: none; }
+        .quick-nav ul li a:hover { text-decoration: underline; }
 
-.post-content .content-img {
-    width: 30%;
-    /* Tăng chiều cao để ảnh "to" hơn */
-    height: 300px; 
-    object-fit: cover; /* Giữ tỷ lệ ảnh, không bị méo */
-    border-radius: 8px;
-    display: block;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng nhẹ */
-}
-	    </style>
+        .post-content .image-block { clear: both; margin: 30px 0; text-align: center; }
+        .post-content .content-img { width: 100%; height: 450px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        /* CSS CHO BIỂU ĐỒ */
+        .chart-container { background-color: #f0f2f5; padding: 20px; border-radius: 8px; margin: 30px 0; }
+        .chart-container h3 { font-size: 22px; margin-bottom: 5px; }
+        .chart-container p { font-size: 15px; color: #555; margin-bottom: 15px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -158,10 +128,53 @@ foreach ($blocks as $index => $block) {
                             echo "<h2 {$anchor_id}>" . htmlspecialchars($block['block_content']) . '</h2>';
                             break;
                         case 'paragraph':
-                            echo '<p>' . nl2br(htmlspecialchars($block['block_content'])) . '</p>';
-                            break;
+						// Xóa htmlspecialchars để thẻ <strong> và <br> có thể hoạt động (tô đâm chữ)
+						echo '<p>' . nl2br($block['block_content']) . '</p>';
+						break;
                         case 'image':
                             echo '<div class="image-block"><img src="' . htmlspecialchars($block['block_content']) . '" alt="" class="content-img"></div>';
+                            break;
+						
+						case 'tip':
+        echo '<div class="tip-box">
+                <p><strong>💡 TIP:</strong> ' . nl2br(htmlspecialchars($block['block_content'])) . '</p>
+              </div>';
+        break;
+
+                        
+                        // THÊM CASE MỚI ĐỂ XỬ LÝ BIỂU ĐỒ
+                        case 'chart':
+                            $chartData = json_decode($block['block_content'], true);
+                            $chartId = 'chart-' . $block['id'];
+                            echo '
+                            <div class="chart-container">
+                                <h3>' . htmlspecialchars($chartData['title']) . '</h3>
+                                <p>' . htmlspecialchars($chartData['subtitle']) . '</p>
+                                <p><strong>' . htmlspecialchars($chartData['game']) . '</strong></p>
+                                <canvas id="' . $chartId . '"></canvas>
+                            </div>
+                            
+                            <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                const ctx = document.getElementById("' . $chartId . '").getContext("2d");
+                                new Chart(ctx, {
+                                    type: "bar",
+                                    data: {
+                                        labels: ' . json_encode($chartData['labels']) . ',
+                                        datasets: ' . json_encode($chartData['datasets']) . '
+                                    },
+                                    options: {
+                                        indexAxis: "y",
+                                        responsive: true,
+                                        plugins: { legend: { position: "top" } },
+                                        scales: {
+                                            x: { beginAtZero: true }
+                                        }
+                                    }
+                                });
+                            });
+                            </script>
+                            ';
                             break;
                     }
                 }
