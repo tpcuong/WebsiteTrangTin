@@ -4,86 +4,107 @@ include 'config.php';
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tin Công Nghệ - Trang tin công nghệ hàng đầu Việt Nam</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech-News | Tin công nghệ mới nhất Việt Nam</title>
+  <meta name="description" content="Tech-News - Trang tin công nghệ hàng đầu Việt Nam. Cập nhật tin tức mới nhất về điện thoại, máy tính, phần mềm và game.">
+  <meta name="keywords" content="tin công nghệ, điện thoại, máy tính, phần mềm, game, đánh giá, thủ thuật">
+  <meta name="author" content="Tech-News Team">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body>
 
 <header class="header">
-    <div class="container">
-        <div class="header-top">
-            <div class="logo"><h1>Tech-News</h1></div>
-            <div class="search-box">
-                <input type="text" placeholder="Tìm kiếm tin tức...">
-                <button>Tìm kiếm</button>
-            </div>
-        </div>
-        <nav class="main-menu">
-            <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Công nghệ</a></li>
-                <li><a href="#">Điện thoại</a></li>
-                <li><a href="#">Máy tính</a></li>
-                <li><a href="#">Ứng dụng</a></li>
-                <li><a href="#">Game</a></li>
-                <li><a href="#">Đánh giá</a></li>
-                <li><a href="#">Thủ thuật</a></li>
-            </ul>
-        </nav>
+  <div class="container">
+    <div class="header-top">
+      <div class="logo"><h1>Tech-News</h1></div>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm tin tức...">
+        <button>Tìm kiếm</button>
+      </div>
     </div>
+    <nav class="main-menu">
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Công nghệ</a></li>
+        <li><a href="#">Điện thoại</a></li>
+        <li><a href="#">Máy tính</a></li>
+        <li><a href="#">Ứng dụng</a></li>
+        <li><a href="#">Game</a></li>
+        <li><a href="#">Đánh giá</a></li>
+        <li><a href="#">Thủ thuật</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main>
   <div class="main-content">
-    
+
     <!-- Banner trái -->
     <aside class="left-banner">
-    <p>Quảng cáo</p>
-    <div class="ad-video">
+      <p>Quảng cáo</p>
+      <div class="ad-video">
         <iframe width="170" height="300"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=M1pA9YPbHd4"
-        title="YouTube video quảng cáo"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ"
+          title="YouTube video quảng cáo"
+          frameborder="0"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
         </iframe>
-    </div>
+      </div>
     </aside>
 
- <!-- Nội dung chính -->
-  <section class="center-content">
-    <h2 class="section-title">Tin mới</h2>
+    <!-- Nội dung chính -->
+    <section class="center-content">
+      <h2 class="section-title">Tin mới</h2>
 
-    <?php
-    // Lấy 1 tin lớn + 1 tin nhỏ bên phải
-    $sql = "SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc 
-            FROM baiviet b 
-            LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
-            ORDER BY b.ngay_dang DESC LIMIT 2";
-    $result = $conn->query($sql);
+      <?php
+      $sql = "SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc 
+              FROM baiviet b 
+              LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
+              ORDER BY b.ngay_dang DESC LIMIT 2";
+      $result = $conn->query($sql);
 
-    if ($result && $result->num_rows > 0) {
-        $i = 0;
-        echo '<div class="featured-news">';
-        while ($row = $result->fetch_assoc()) {
-            if ($i == 0) {
-                // Tin lớn
-                echo '<article class="news-card large">
-                        <a href="chitiet.php?id='.$row['id'].'">
-                          <img src="'.$row['hinh_anh'].'" alt="'.$row['tieu_de'].'">
-                        </a>
-                        <div class="news-info">
-                          <span class="news-meta">'.$row['ten_linhvuc'].'</span>
-                          <h3 class="news-title"><a href="chitiet.php?id='.$row['id'].'">'.$row['tieu_de'].'</a></h3>
-                          <p class="news-excerpt">'.$row['mo_ta_ngan'].'</p>
-                        </div>
-                      </article>';
-            } else {
-                // Tin nhỏ
-                echo '<article class="news-card small">
+      if ($result && $result->num_rows > 0) {
+          $i = 0;
+          echo '<div class="featured-news">';
+          while ($row = $result->fetch_assoc()) {
+              $cardClass = ($i == 0) ? 'large' : 'small';
+              echo '<article class="news-card '.$cardClass.'">
+                      <a href="chitiet.php?id='.$row['id'].'">
+                        <img src="'.$row['hinh_anh'].'" alt="'.$row['tieu_de'].'">
+                      </a>
+                      <div class="news-info">
+                        <span class="news-meta">'.$row['ten_linhvuc'].'</span>
+                        <h3 class="news-title"><a href="chitiet.php?id='.$row['id'].'">'.$row['tieu_de'].'</a></h3>
+                        <p class="news-excerpt">'.$row['mo_ta_ngan'].'</p>
+                      </div>
+                    </article>';
+              $i++;
+          }
+          echo '</div>';
+      }
+      ?>
+
+      <!-- Grid tin nhỏ -->
+      <div class="news-grid">
+        <?php
+        $sql = "SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc 
+                FROM baiviet b 
+                LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
+                ORDER BY b.ngay_dang DESC LIMIT 2,4";
+        $result = $conn->query($sql);
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '<article class="news-card">
                         <a href="chitiet.php?id='.$row['id'].'">
                           <img src="'.$row['hinh_anh'].'" alt="'.$row['tieu_de'].'">
                         </a>
@@ -94,67 +115,70 @@ include 'config.php';
                         </div>
                       </article>';
             }
-            $i++;
         }
-        echo '</div>';
-    }
-    ?>
+        ?>
+      </div>
+    </section>
 
-    <!-- Grid tin nhỏ -->
-    <div class="news-grid">
+    <!-- Sidebar phải -->
+    <aside class="right-sidebar">
+      <h2 class="section-title">Tin theo ngày</h2>
       <?php
-      $sql = "SELECT b.id, b.tieu_de,b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc 
+      $sql = "SELECT b.id, b.tieu_de, b.hinh_anh, l.ten_linhvuc 
               FROM baiviet b 
               LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
-              ORDER BY b.ngay_dang DESC LIMIT 2,4";
+              ORDER BY b.ngay_dang DESC LIMIT 5";
       $result = $conn->query($sql);
 
       if ($result && $result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
-              echo '<article class="news-card">
+              echo '<div class="hot-item">
                       <a href="chitiet.php?id='.$row['id'].'">
-                        <img src="'.$row['hinh_anh'].'" alt="'.$row['tieu_de'].'">
+                        <img src="'.$row['hinh_anh'].'" alt="'.$row['tieu_de'].'" class="hot-thumb">
                       </a>
-                      <div class="news-info">
+                      <div class="hot-info">
+                        <h4><a href="chitiet.php?id='.$row['id'].'">'.$row['tieu_de'].'</a></h4>
                         <span class="news-meta">'.$row['ten_linhvuc'].'</span>
-                        <h3 class="news-title"><a href="chitiet.php?id='.$row['id'].'">'.$row['tieu_de'].'</a></h3>
-                        <p class="news-excerpt">'.$row['mo_ta_ngan'].'</p>
                       </div>
-                    </article>';
+                    </div>';
           }
       }
       ?>
-    </div>
-  </section>
+    </aside>
 
-  <!-- Sidebar phải -->
-  <aside class="right-sidebar">
-    <h2 class="section-title">Tin theo ngày</h2>
-    <?php
-    $sql = "SELECT b.id, b.tieu_de, b.hinh_anh, l.ten_linhvuc 
-            FROM baiviet b 
-            LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
-            ORDER BY b.ngay_dang DESC LIMIT 5";
-    $result = $conn->query($sql);
-
-    if ($result && $result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo '<div class="hot-item">
-                    <a href="chitiet.php?id='.$row['id'].'">
-                      <img src="'.$row['hinh_anh'].'" alt="'.$row['tieu_de'].'" class="hot-thumb">
-                    </a>
-                    <div class="hot-info">
-                      <h4><a href="chitiet.php?id='.$row['id'].'">'.$row['tieu_de'].'</a></h4>
-                      <span class="news-meta">'.$row['ten_linhvuc'].'</span>
-                    </div>
-                  </div>';
-        }
-    }
-    ?>
-  </aside>
-    
   </div>
 </main>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Liên Hệ</h2>
+    <div class="contact-content">
+      
+      <!-- Thông tin liên hệ -->
+      <div class="contact-info">
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Tòa nhà League, Âu Lạc, Thăng Long</li>
+          <li><i class="fas fa-envelope"></i> info@technews.vn</li>
+          <li><i class="fas fa-phone-alt"></i> Hotline: 0123-456-789</li>
+          <li><i class="fas fa-clock"></i> Thứ 2 - Thứ 7: 8h - 21h</li>
+          <li><i class="fas fa-calendar-times"></i> Chủ nhật: Nghỉ</li>
+        </ul>
+      </div>
+
+      <!-- Form liên hệ -->
+      <div class="contact-form">
+        <form action="send_contact.php" method="post">
+          <input type="text" name="name" placeholder="Họ tên của bạn" required>
+          <input type="email" name="email" placeholder="Email của bạn" required>
+          <textarea name="message" placeholder="Nội dung liên hệ..." required></textarea>
+          <button type="submit" class="submit-button">Gửi liên hệ</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <footer class="footer">
     <div class="container">
