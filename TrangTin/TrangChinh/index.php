@@ -46,7 +46,6 @@ include 'config.php';
 <main>
   <div class="main-content">
 
-    <!-- Banner trái -->
     <aside class="left-banner">
       <p>Quảng cáo</p>
       <div class="ad-video">
@@ -61,7 +60,6 @@ include 'config.php';
       </div>
     </aside>
 
-    <!-- Nội dung chính -->
     <section class="center-content">
       <h2 class="section-title">Tin mới</h2>
 
@@ -93,7 +91,6 @@ include 'config.php';
       }
       ?>
 
-      <!-- Grid tin nhỏ -->
       <div class="news-grid">
         <?php
         $sql = "SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc 
@@ -118,9 +115,55 @@ include 'config.php';
         }
         ?>
       </div>
-    </section>
 
-    <!-- Sidebar phải -->
+      <h2 class="section-title" style="margin-top: 30px; width: 100%;">Các tin khác</h2>
+      <div class="news-grid">
+          <?php
+          // --- Bước 1: Lấy ID của 6 bài viết đã hiển thị để loại trừ ---
+          $exclude_ids = [];
+          $sql_exclude = "SELECT id FROM baiviet ORDER BY ngay_dang DESC LIMIT 6";
+          $result_exclude = $conn->query($sql_exclude);
+
+          if ($result_exclude && $result_exclude->num_rows > 0) {
+              while ($row_exclude = $result_exclude->fetch_assoc()) {
+                  $exclude_ids[] = $row_exclude['id'];
+              }
+          }
+
+          // --- Bước 2: Lấy tất cả các bài viết còn lại ---
+          $sql_others = "SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc 
+                         FROM baiviet b 
+                         LEFT JOIN linhvuc l ON b.id_linhvuc = l.id";
+
+          if (!empty($exclude_ids)) {
+              $id_string = implode(',', $exclude_ids);
+              $sql_others .= " WHERE b.id NOT IN ($id_string)";
+          }
+
+          $sql_others .= " ORDER BY b.ngay_dang DESC";
+
+          $result_others = $conn->query($sql_others);
+
+          if ($result_others && $result_others->num_rows > 0) {
+              while ($row = $result_others->fetch_assoc()) {
+                  echo '<article class="news-card">
+                          <a href="chitiet.php?id='.$row['id'].'">
+                            <img src="'.$row['hinh_anh'].'" alt="'.$row['tieu_de'].'">
+                          </a>
+                          <div class="news-info">
+                            <span class="news-meta">'.$row['ten_linhvuc'].'</span>
+                            <h3 class="news-title"><a href="chitiet.php?id='.$row['id'].'">'.$row['tieu_de'].'</a></h3>
+                            <p class="news-excerpt">'.$row['mo_ta_ngan'].'</p>
+                          </div>
+                        </article>';
+              }
+          } else {
+              echo '<p style="width: 100%; text-align: center;">Không có tin tức nào khác để hiển thị.</p>';
+          }
+          ?>
+      </div>
+      </section>
+
     <aside class="right-sidebar">
       <h2 class="section-title">Tin theo ngày</h2>
       <?php
@@ -149,13 +192,11 @@ include 'config.php';
   </div>
 </main>
 
-<!-- Contact Section -->
 <section class="contact-section" id="contact">
   <div class="container">
     <h2 class="section-title">Liên Hệ</h2>
     <div class="contact-content">
       
-      <!-- Thông tin liên hệ -->
       <div class="contact-info">
         <ul>
           <li><i class="fas fa-map-marker-alt"></i> Tòa nhà League, Âu Lạc, Thăng Long</li>
@@ -166,7 +207,6 @@ include 'config.php';
         </ul>
       </div>
 
-      <!-- Form liên hệ -->
       <div class="contact-form">
         <form action="send_contact.php" method="post">
           <input type="text" name="name" placeholder="Họ tên của bạn" required>
