@@ -42,18 +42,67 @@ CREATE TABLE `baiviet` (
 --
 
 INSERT INTO `baiviet` (`id`, `tieu_de`, `mo_ta_ngan`, `hinh_anh`, `id_linhvuc`, `ngay_dang`) VALUES
-(1, 'iPhone 17 Pro Max ra mắt', 'Apple chính thức trình làng iPhone mới với nhiều cải tiến.', 'images/ip17.png', 2, '2025-09-24 12:36:50'),
-(2, 'Laptop gaming Alienware 2025', 'Alienware 2025 sở hữu CPU Intel thế hệ mới và GPU RTX 5090.', 'images/alienware2025.png', 3, '2025-09-24 12:36:50'),
-(3, 'Meta ra mắt kính thực tế ảo mới', 'Kính VR của Meta mang trải nghiệm sống động hơn với cảm biến 3D tiên tiến.', 'images/meta-vr.png', 1, '2025-09-24 12:36:50'),
-(4, '10 ứng dụng AI miễn phí giúp học tập', 'Danh sách các ứng dụng AI hữu ích cho sinh viên và lập trình viên.', 'images/ai-apps.png', 4, '2025-09-24 12:36:50'),
-(5, 'Top game hot tháng 9', 'Tổng hợp các tựa game được chơi nhiều nhất trong tháng 9.', 'images/game-sep.png', NULL, '2025-09-24 12:36:50'),
-(6, 'Đánh giá chi tiết laptop Dell XPS 13 9350 2025', 'Mẫu laptop mới của Dell với thiết kế mỏng nhẹ và hiệu năng đỉnh cao nhờ chip Intel Core Ultra mới.', 'images/laptop.png', 3, '2025-10-10 08:15:00'),
-(7, 'Samsung ra mắt Galaxy Z Fold 7', 'Chiếc điện thoại gập thế hệ mới của Samsung có nhiều cải tiến về màn hình và độ bền bản lề.', 'images/GalaxyZ.png', 2, '2025-10-11 11:20:30'),
-(8, 'Xu hướng phát triển của trí tuệ nhân tạo tạo sinh', 'AI tạo sinh đang thay đổi nhiều ngành công nghiệp, từ nghệ thuật đến lập trình.', 'images/AIs.png', 1, '2025-10-12 14:00:00'),
-(9, 'Top 5 ứng dụng quản lý công việc hiệu quả nhất', 'Danh sách các ứng dụng giúp bạn sắp xếp công việc và tăng năng suất làm việc nhóm.', 'images/TOP.png', 4, '2025-10-13 09:30:15'),
+
+(1, 'iPhone 17 Pro Max ra mắt', 'Apple chính thức trình làng iPhone mới với nhiều cải tiến.', 'images/ip17.png', 2, '2025-10-24 13:00:00'),
+
+(2, 'Laptop gaming Alienware 2025', 'Alienware 2025 sở hữu CPU Intel thế hệ mới và GPU RTX 5090.', 'images/alienware2025.png', 3, '2025-10-24 12:59:50'),
+
+(3, 'Meta ra mắt kính thực tế ảo mới', 'Kính VR của Meta mang trải nghiệm sống động hơn với cảm biến 3D tiên tiến.', 'images/meta-vr.png', 1, '2025-10-24 12:58:50'),
+
+(4, '10 ứng dụng AI miễn phí giúp học tập', 'Danh sách các ứng dụng AI hữu ích cho sinh viên và lập trình viên.', 'images/ai-apps.png', 4, '2025-10-24 12:57:50'),
+
+(5, 'Top game hot tháng 9', 'Tổng hợp các tựa game được chơi nhiều nhất trong tháng 9.', 'images/game-sep.png', NULL, '2025-9-24 12:36:50'),
+
+(6, 'Đánh giá chi tiết laptop Dell XPS 13 9350 2025', 'Mẫu laptop mới của Dell với thiết kế mỏng nhẹ và hiệu năng đỉnh cao nhờ chip Intel Core Ultra mới.', 'images/laptop.png', 3, '2025-10-24 12:56:00'), 
+
+(7, 'Samsung ra mắt Galaxy Z Fold 7', 'Chiếc điện thoại gập thế hệ mới của Samsung có nhiều cải tiến về màn hình và độ bền bản lề.', 'images/GalaxyZ.png', 2, '2025-10-24 12:55:30'), 
+
+(8, 'Xu hướng phát triển của trí tuệ nhân tạo tạo sinh', 'AI tạo sinh đang thay đổi nhiều ngành công nghiệp, từ nghệ thuật đến lập trình.', 'images/AIs.png', 1, '2025-10-24 12:54:00'), 
+
+(9, 'Top 5 ứng dụng quản lý công việc hiệu quả nhất', 'Danh sách các ứng dụng giúp bạn sắp xếp công việc và tăng năng suất làm việc nhóm.', 'images/TOP.png', 4, '2025-10-24 12:53:15'), 
+
+
+
+
 (10, 'Google Pixel 9: Có gì mới?', 'Những nâng cấp đáng chú ý về camera và các tính năng AI độc quyền trên dòng Pixel mới.', 'images/pixel9.png', 2, '2025-10-15 10:05:55'),
 (11, 'Tương lai của mạng 6G và những ứng dụng tiềm năng', 'Công nghệ mạng 6G hứa hẹn sẽ mở ra một kỷ nguyên mới cho Internet vạn vật (IoT) và xe tự lái.', 'images/6G.png', 1, '2025-10-15 18:00:00'),
-(12, 'Microsoft Surface Pro 11: Sự kết hợp hoàn hảo giữa laptop và tablet', 'Thiết bị mới của Microsoft được trang bị chip ARM mạnh mẽ và thời lượng pin ấn tượng.', 'images/PRO.png', 3, '2025-10-16 10:10:10');
+(12, 'Microsoft Surface Pro 11: Sự kết hợp hoàn hảo giữa laptop và tablet', 'Thiết bị mới của Microsoft được trang bị chip ARM mạnh mẽ và thời lượng pin ấn tượng.', 'images/PRO.png', 3, '2025-10-16 10:10:10'),
+
+
+(13, 'AI tổng hợp giọng nói ngày càng giống thật', 'Công nghệ AI giọng nói thế hệ mới có thể bắt chước cảm xúc con người một cách tự nhiên.', 'images/voiceAI.png', 1, '2025-10-18 09:00:00'),
+(14, 'Robot thế hệ mới có khả năng học cảm xúc', 'Các nhà nghiên cứu phát triển robot biết nhận biết và phản hồi cảm xúc con người.', 'images/robotAI.png', 1, '2025-10-18 10:15:00'),
+(15, 'Chip lượng tử đầu tiên được thương mại hóa', 'Một bước tiến lớn trong ngành máy tính lượng tử với con chip đầu tiên được bán ra thị trường.', 'images/quantumchip.png', 1, '2025-10-18 11:00:00'),
+(16, 'Apple phát triển trợ lý AI cá nhân iIntelli', 'Trợ lý AI mới của Apple hứa hẹn thay đổi cách người dùng tương tác với thiết bị.', 'images/iIntelli.png', 1, '2025-10-19 08:45:00'),
+(17, 'Công nghệ pin graphene sạc đầy trong 2 phút', 'Pin graphene mở ra kỷ nguyên mới cho thiết bị di động và xe điện.', 'images/graphene.png', 1, '2025-10-19 10:00:00'),
+(18, 'Google giới thiệu dự án AI về sáng tạo nghệ thuật', 'AI của Google có thể tạo tranh, nhạc và video với phong cách nghệ sĩ nổi tiếng.', 'images/AIArt.png', 1, '2025-10-20 14:20:00'),
+(19, 'Trí tuệ nhân tạo trong y học: Chẩn đoán nhanh hơn bác sĩ', 'AI y tế có thể phát hiện bệnh sớm và hỗ trợ bác sĩ ra quyết định điều trị.', 'images/medicalAI.png', 1, '2025-10-21 09:30:00'),
+
+
+(20, 'Vivo X200 ra mắt với camera ZEISS', 'Vivo X200 được trang bị cảm biến ZEISS và chip Dimensity 9400 mạnh mẽ.', 'images/vivox200.png', 2, '2025-10-21 09:30:00'),
+(21, 'Xiaomi 15 Pro chính thức ra mắt', 'Xiaomi 15 Pro ra mắt với chip Snapdragon 8 Gen 4 và camera Leica mới.', 'images/xiaomi15pro.png', 2, '2025-10-21 11:00:00'),
+(22, 'Oppo Find X8 – Thiết kế tràn viền độc đáo', 'Oppo Find X8 gây ấn tượng với màn hình cong 120Hz và camera cảm biến lớn.', 'images/oppoX8.png', 2, '2025-10-21 13:30:00'),
+(23, 'Google Pixel Fold 2 trình làng', 'Google Pixel Fold 2 sở hữu màn hình gập linh hoạt hơn và tính năng AI mạnh mẽ.', 'images/pixelfold2.png', 2, '2025-10-22 09:15:00'),
+(24, 'Samsung Galaxy S26 Ultra rò rỉ cấu hình', 'Galaxy S26 Ultra được đồn đoán có cảm biến camera 250MP và chip Exynos 2500.', 'images/s26ultra.png', 2, '2025-10-22 10:45:00'),
+(25, 'Asus ROG Phone 9 – Quái thú gaming', 'ROG Phone 9 ra mắt với tản nhiệt đột phá và màn hình AMOLED 165Hz.', 'images/rogphone9.png', 2, '2025-10-22 12:00:00'),
+(26, 'Realme GT Neo 6 – Hiệu năng vượt tầm giá', 'Chiếc smartphone tầm trung của Realme gây bất ngờ với hiệu năng mạnh và sạc 240W.', 'images/realmeGT6.png', 2, '2025-10-22 13:15:00'),
+
+
+(27, 'Intel Core Ultra 200 ra mắt với hiệu năng vượt trội', 'Dòng chip Intel Core Ultra 200 mang đến bước tiến lớn về hiệu năng và tiết kiệm điện năng.', 'images/intelcoreultra200.png', 3, '2025-10-21 09:00:00'),
+(28, 'AMD Ryzen 9000 chính thức trình làng', 'AMD công bố thế hệ vi xử lý Ryzen 9000 với kiến trúc Zen 6 mạnh mẽ hơn bao giờ hết.', 'images/ryzen9000.png', 3, '2025-10-21 10:30:00'),
+(29, 'Apple giới thiệu MacBook Pro M4', 'MacBook Pro M4 được nâng cấp chip Apple Silicon M4 và màn hình mini-LED sáng hơn.', 'images/macbookprom4.png', 3, '2025-10-21 12:00:00'),
+(30, 'Dell XPS 16 2025 ra mắt với thiết kế mỏng nhẹ', 'Dell XPS 16 mang phong cách tinh tế cùng màn hình InfinityEdge thế hệ mới.', 'images/dellxps16.png', 3, '2025-10-21 14:00:00'),
+(31, 'NVIDIA RTX 5090 – Hiệu năng đồ họa khủng', 'RTX 5090 đạt bước nhảy lớn về hiệu suất và hỗ trợ công nghệ ray tracing thế hệ mới.', 'images/rtx5090.png', 3, '2025-10-22 09:30:00'),
+(32, 'Asus ROG Strix G18 2025 – Gaming laptop đỉnh cao', 'Asus ROG Strix G18 trang bị GPU RTX 5090 và hệ thống tản nhiệt cải tiến.', 'images/rogstrixg18.png', 3, '2025-10-22 11:00:00'),
+(33, 'Lenovo Legion 9i Gen 10 trình làng', 'Laptop gaming cao cấp Lenovo Legion 9i Gen 10 có thiết kế sợi carbon và tản nhiệt chất lỏng.', 'images/legion9igen10.png', 3, '2025-10-22 13:00:00'),
+
+
+(34, 'TikTok Notes ra mắt toàn cầu', 'TikTok Notes – nền tảng chia sẻ ảnh mới của TikTok, đối đầu trực tiếp với Instagram.', 'images/tiktoknotes.png', 4, '2025-10-21 09:00:00'),
+(35, 'Meta AI chính thức tích hợp vào Messenger', 'Người dùng Messenger nay có thể trò chuyện và tạo hình ảnh với Meta AI ngay trong ứng dụng.', 'images/metaai_messenger.png', 4, '2025-10-21 10:15:00'),
+(36, 'CapCut bổ sung công cụ AI dựng video tự động', 'Ứng dụng chỉnh sửa video CapCut cập nhật tính năng AI tự động tạo video từ văn bản.', 'images/capcutai.png', 4, '2025-10-21 12:00:00'),
+(37, 'Google Maps cập nhật chế độ AR chỉ đường trong nhà', 'Google Maps thêm tính năng chỉ đường bằng AR tại trung tâm thương mại và sân bay.', 'images/googlemapsar.png', 4, '2025-10-21 14:00:00'),
+(38, 'ChatGPT App cập nhật giao diện mới trên iOS và Android', 'Ứng dụng ChatGPT được nâng cấp giao diện hiện đại, hỗ trợ nhập liệu bằng giọng nói.', 'images/chatgptapp2025.png', 4, '2025-10-22 09:00:00'),
+(39, 'Canva AI ra mắt công cụ thiết kế logo tự động', 'Canva tích hợp AI giúp người dùng tạo logo chuyên nghiệp chỉ trong vài giây.', 'images/canvaai.png', 4, '2025-10-22 10:30:00'),
+(40, 'Zalo cập nhật tính năng nhắc lịch thông minh', 'Zalo giới thiệu tính năng mới cho phép tự động nhắc hẹn dựa trên tin nhắn.', 'images/zalo_smartreminder.png', 4, '2025-10-22 12:15:00');
 
 -- --------------------------------------------------------
 
