@@ -1,4 +1,5 @@
 <?php
+session_start(); // <- THÊM DÒNG NÀY LÊN ĐẦU TIÊN
 include 'config.php'; // Sử dụng kết nối mysqli từ file này
 
 // Lấy id bài viết từ URL một cách an toàn
@@ -9,7 +10,7 @@ if ($id <= 0) {
 }
 
 // 1. Truy vấn bài viết chính
-$sql = "SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, b.ngay_dang, l.ten_linhvuc 
+$sql = "SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, b.ngay_dang, b.id_linhvuc, l.ten_linhvuc 
         FROM baiviet b
         LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
         WHERE b.id = ?
@@ -60,13 +61,101 @@ foreach ($blocks as $index => $block) {
         .chart-container { background-color: #f0f2f5; padding: 20px; border-radius: 8px; margin: 30px 0; }
         .chart-container h3 { font-size: 22px; margin-bottom: 5px; }
         .chart-container p { font-size: 15px; color: #555; margin-bottom: 15px; }
+        
+        /* ===== CSS MỚI CHO BÀI VIẾT LIÊN QUAN ===== */
+        .related-posts {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        /* Dùng lại class .section-title đã có */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .related-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .related-item a { text-decoration: none; color: #333; }
+        .related-thumb {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        .related-item h4 {
+            font-size: 15px;
+            padding: 10px;
+            margin: 0;
+            line-height: 1.4;
+        }
+        .related-item:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        /* ===== CSS MỚI CHO KHUNG THẢO LUẬN ===== */
+        .discussion-form {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        .discussion-form p {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        .discussion-form textarea,
+        .discussion-form input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box; /* Quan trọng */
+            font-family: inherit;
+            font-size: 15px;
+        }
+        .discussion-form .user-info {
+            display: flex;
+            gap: 15px;
+        }
+        .discussion-form .user-info input {
+            flex: 1; /* Chia đôi không gian */
+        }
+        .discussion-form button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .discussion-form button:hover {
+            background-color: #e65c00;
+        }
+        
+        /* Responsive cho grid (trên mobile) */
+        @media (max-width: 768px) {
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .discussion-form .user-info {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <header class="header">
-    <div class="container">
+        <div class="container">
         <div class="header-top">
             <div class="logo"><h1>Tech-News</h1></div>
             <div class="search-box">
@@ -93,6 +182,10 @@ foreach ($blocks as $index => $block) {
 
     <section class="post-detail">
         <a href="index.php" class="back-link">← Quay lại trang chủ</a>
+		
+
+		
+		
         <h1 class="post-title"><?= htmlspecialchars($baiviet['tieu_de']) ?></h1>
         <div class="post-meta">
             <span class="category"><?= htmlspecialchars($baiviet['ten_linhvuc'] ?? 'Chưa phân loại') ?></span> | 
@@ -128,20 +221,19 @@ foreach ($blocks as $index => $block) {
                             echo "<h2 {$anchor_id}>" . htmlspecialchars($block['block_content']) . '</h2>';
                             break;
                         case 'paragraph':
-						// Xóa htmlspecialchars để thẻ <strong> và <br> có thể hoạt động (tô đâm chữ)
-						echo '<p>' . nl2br($block['block_content']) . '</p>';
-						break;
+                            // SỬA LỖI BẢO MẬT XSS: Chỉ cho phép thẻ <strong> và <br>
+                            echo '<p>' . nl2br(strip_tags($block['block_content'], '<strong><br><b><i><u>')) . '</p>';
+                            break;
                         case 'image':
                             echo '<div class="image-block"><img src="' . htmlspecialchars($block['block_content']) . '" alt="" class="content-img"></div>';
                             break;
-						
-						case 'tip':
-        echo '<div class="tip-box">
+                        
+                        case 'tip':
+                            echo '<div class="tip-box">
                 <p><strong>💡 TIP:</strong> ' . nl2br(htmlspecialchars($block['block_content'])) . '</p>
               </div>';
-        break;
+                            break;
 
-                        
                         // THÊM CASE MỚI ĐỂ XỬ LÝ BIỂU ĐỒ
                         case 'chart':
                             $chartData = json_decode($block['block_content'], true);
@@ -181,9 +273,56 @@ foreach ($blocks as $index => $block) {
             }
             ?>
         </div>
-    </section>
 
-    <aside class="right-sidebar">
+                <?php
+        // 4. Truy vấn bài viết liên quan (CÙNG LĨNH VỰC)
+        $related_posts = [];
+        // Chỉ tìm bài liên quan nếu bài này có set lĩnh vực
+        if (!empty($baiviet['id_linhvuc'])) {
+            $sql_related = "SELECT id, tieu_de, hinh_anh FROM baiviet 
+                            WHERE id_linhvuc = ? AND id <> ? 
+                            ORDER BY ngay_dang DESC LIMIT 4";
+            $stmt_related = $conn->prepare($sql_related);
+            // $baiviet['id_linhvuc'] lấy từ truy vấn 1, $id là id bài hiện tại
+            $stmt_related->bind_param("ii", $baiviet['id_linhvuc'], $id);
+            $stmt_related->execute();
+            $result_related = $stmt_related->get_result();
+            $related_posts = $result_related->fetch_all(MYSQLI_ASSOC);
+            $stmt_related->close();
+        }
+        ?>
+
+        <?php if (!empty($related_posts)): ?>
+        <div class="related-posts">
+                        <h2 class="section-title">Bài viết liên quan</h2>
+            <div class="related-grid">
+                <?php foreach ($related_posts as $post): ?>
+                <div class="related-item">
+                    <a href="chitiet.php?id=<?= $post['id'] ?>">
+                        <img src="<?= htmlspecialchars($post['hinh_anh']) ?>" alt="<?= htmlspecialchars($post['tieu_de']) ?>" class="related-thumb">
+                        <h4><?= htmlspecialchars($post['tieu_de']) ?></h4>
+                    </a>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php endif; ?>
+
+                <div class="discussion-form">
+            <h2 class="section-title">Thảo luận về bài viết</h2>
+                        <form action="submit-comment.php" method="POST">
+                <p>Bình luận của bạn sẽ được duyệt trước khi hiển thị.</p>
+                <textarea name="comment_content" placeholder="Viết bình luận của bạn tại đây..." rows="6" required></textarea>
+                <div class="user-info">
+                    <input type="text" name="author_name" placeholder="Họ và tên (bắt buộc)" required>
+                    <input type="text" name="author_phone" placeholder="Số điện thoại (không bắt buộc)">
+                </div>
+                                <input type="hidden" name="post_id" value="<?= $id ?>">
+                <button type="submit">Gửi bình luận</button>
+            </form>
+        </div>
+
+            </section>     <aside class="right-sidebar">
         <h2 class="section-title">Bài viết khác</h2>
         <?php
         $sql_other = "SELECT id, tieu_de, hinh_anh FROM baiviet WHERE id <> ? ORDER BY ngay_dang DESC LIMIT 5";
@@ -211,10 +350,8 @@ foreach ($blocks as $index => $block) {
         ?>
     </aside>
 
-</main>
-
-<footer class="footer">
-    <div class="container">
+</main> <footer class="footer">
+        <div class="container">
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Về chúng tôi</h4>
@@ -234,7 +371,7 @@ foreach ($blocks as $index => $block) {
                 <div class="social-links">
                     <a href="#">Facebook</a>
                     <a href="#">Twitter</a>
-                    <a href="#">Instagram</a>
+              M      <a href="#">Instagram</a>
                     <a href="#">YouTube</a>
                 </div>
             </div>
@@ -247,6 +384,7 @@ foreach ($blocks as $index => $block) {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
+
 $(document).ready(function(){
     // Chức năng Ẩn/Hiện mục lục
     $('.quick-nav h3').on('click', function(){ $(this).next('ul').slideToggle(); });
@@ -264,5 +402,14 @@ $(document).ready(function(){
 });
 </script>
 
+
+<?php
+// Hiển thị thông báo (alert) và xóa nó khỏi session
+if (isset($_SESSION['flash_message'])) {
+    // Dùng addslashes để đảm bảo chuỗi JavaScript là an toàn (tránh lỗi nếu có dấu ' trong tin nhắn)
+    echo "<script>alert('" . addslashes($_SESSION['flash_message']) . "');</script>";
+    unset($_SESSION['flash_message']); // Hủy session ngay sau khi hiển thị
+}
+?>
 </body>
 </html>
