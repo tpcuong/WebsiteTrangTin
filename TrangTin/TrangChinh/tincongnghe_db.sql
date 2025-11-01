@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 23, 2025 lúc 02:25 AM
+-- Thời gian đã tạo: Th10 01, 2025 lúc 08:10 AM
 -- Phiên bản máy phục vụ: 5.7.25
 -- Phiên bản PHP: 7.1.26
 
@@ -46,15 +46,11 @@ INSERT INTO `baiviet` (`id`, `tieu_de`, `mo_ta_ngan`, `hinh_anh`, `id_linhvuc`, 
 (2, 'Laptop gaming Alienware 2025', 'Alienware 2025 sở hữu CPU Intel thế hệ mới và GPU RTX 5090.', 'images/alienware2025.png', 3, '2025-10-24 12:59:50'),
 (3, 'Meta ra mắt kính thực tế ảo mới', 'Kính VR của Meta mang trải nghiệm sống động hơn với cảm biến 3D tiên tiến.', 'images/meta-vrr.png', 1, '2025-10-24 12:58:50'),
 (4, '10 ứng dụng AI miễn phí giúp học tập', 'Danh sách các ứng dụng AI hữu ích cho sinh viên và lập trình viên.', 'images/ai-apps.png', 4, '2025-10-24 12:57:50'),
-
 (5, 'Top game hot tháng 9', 'Tổng hợp các tựa game được chơi nhiều nhất trong tháng 9.', 'images/game-sep.png', NULL, '2025-09-24 12:36:50'),
-
 (6, 'Đánh giá chi tiết laptop Dell XPS 13 9350 2025', 'Mẫu laptop mới của Dell với thiết kế mỏng nhẹ và hiệu năng đỉnh cao nhờ chip Intel Core Ultra mới.', 'images/laptop.png', 3, '2025-10-24 12:56:00'),
 (7, 'Samsung ra mắt Galaxy Z Fold 7', 'Chiếc điện thoại gập thế hệ mới của Samsung có nhiều cải tiến về màn hình và độ bền bản lề.', 'images/GalaxyZ.png', 2, '2025-10-24 12:55:30'),
 (8, 'Xu hướng phát triển của trí tuệ nhân tạo tạo sinh', 'AI tạo sinh đang thay đổi nhiều ngành công nghiệp, từ nghệ thuật đến lập trình.', 'images/AIs.png', 1, '2025-10-24 12:54:00'),
 (9, 'Top 5 ứng dụng quản lý công việc hiệu quả nhất', 'Danh sách các ứng dụng giúp bạn sắp xếp công việc và tăng năng suất làm việc nhóm.', 'images/TOP.png', 4, '2025-10-24 12:53:15'),
-
-
 (10, 'Google Pixel 9: Có gì mới?', 'Những nâng cấp đáng chú ý về camera và các tính năng AI độc quyền trên dòng Pixel mới.', 'images/pixel9.png', 2, '2025-10-15 10:05:55'),
 (11, 'Tương lai của mạng 6G và những ứng dụng tiềm năng', 'Công nghệ mạng 6G hứa hẹn sẽ mở ra một kỷ nguyên mới cho Internet vạn vật (IoT) và xe tự lái.', 'images/6G.png', 1, '2025-10-15 18:00:00'),
 (12, 'Microsoft Surface Pro 11: Sự kết hợp hoàn hảo giữa laptop và tablet', 'Thiết bị mới của Microsoft được trang bị chip ARM mạnh mẽ và thời lượng pin ấn tượng.', 'images/PRO.png', 3, '2025-10-16 10:10:10'),
@@ -86,29 +82,6 @@ INSERT INTO `baiviet` (`id`, `tieu_de`, `mo_ta_ngan`, `hinh_anh`, `id_linhvuc`, 
 (38, 'ChatGPT App cập nhật giao diện mới trên iOS và Android', 'Ứng dụng ChatGPT được nâng cấp giao diện hiện đại, hỗ trợ nhập liệu bằng giọng nói.', 'images/chatgptapp2025.png', 4, '2025-10-22 09:00:00'),
 (39, 'Canva AI ra mắt công cụ thiết kế logo tự động', 'Canva tích hợp AI giúp người dùng tạo logo chuyên nghiệp chỉ trong vài giây.', 'images/canvaai.png', 4, '2025-10-22 10:30:00'),
 (40, 'Zalo cập nhật tính năng nhắc lịch thông minh', 'Zalo giới thiệu tính năng mới cho phép tự động nhắc hẹn dựa trên tin nhắn.', 'images/zalo_smartreminder.png', 4, '2025-10-22 12:15:00');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `baiviet_hot`
---
-
-CREATE TABLE `baiviet_hot` (
-  `id` int(11) NOT NULL,
-  `id_baiviet` int(11) DEFAULT NULL,
-  `vi_tri` int(11) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `baiviet_hot`
---
-
-INSERT INTO `baiviet_hot` (`id`, `id_baiviet`, `vi_tri`) VALUES
-(1, 1, 1),
-(2, 2, 2),
-(3, 3, 3),
-(4, 4, 4),
-(5, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -179,16 +152,14 @@ INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `
 (33, 1, 330, 'paragraph', 'Việc chọn mua iPhone 17 phụ thuộc vào nhu cầu cụ thể của bạn. Nếu bạn cần thiết bị mỏng nhẹ, di động cao cho công việc hàng ngày, iPhone Air là lựa chọn lý tưởng với thiết kế đột phá và pin tiết kiệm, dù camera đơn giản hơn. Bản tiêu chuẩn phù hợp người dùng cơ bản, với màn hình 120Hz và camera nâng cấp ở mức giá phải chăng, giúp nâng cấp từ iPhone cũ mà không tốn kém. Đối với nhiếp ảnh gia hoặc game thủ, iPhone 17 Pro và Pro Max vượt trội nhờ camera 48MP đa dạng, tản nhiệt buồng hơi và hiệu năng A19 Pro mạnh mẽ, đáng đầu tư nếu bạn dùng iPhone 14 trở về trước.'),
 (34, 1, 340, 'heading', 'Kết luận'),
 (35, 1, 350, 'paragraph', 'Qua những thông tin mới nhất về iPhone 17 có gì mới trên có thể thấy iPhone 17 khẳng định sự tiến bộ của Apple trong việc kết hợp công nghệ tiên tiến với trải nghiệm người dùng thực tế. Từ iPhone Air mỏng nhẹ đến Pro Max mạnh mẽ, mỗi phiên bản đều mang đến giá trị riêng, giúp bạn dễ dàng tìm được thiết bị phù hợp.'),
-
-
 (36, 2, 10, 'paragraph', 'Nếu bạn đang tìm một chiếc laptop gaming Dell, không thể không nhắc đến Alienware - thương hiệu con cao cấp nhất, biểu tượng cho sức mạnh và thiết kế gaming đỉnh cao của gã khổng lồ công nghệ Mỹ. Alienware không chỉ là một chiếc laptop, nó là một tuyên ngôn về đẳng cấp, hiệu năng và sự đột phá công nghệ, sinh ra để thống trị thế giới game.'),
-(37, 2, 20, 'heading', '1. Thiết kế "Legend" - Di sản từ tương lai'),
-(38, 2, 30, 'paragraph', 'Các dòng máy Alienware, đặc biệt là series X và M, đều tuân theo triết lý thiết kế ''Legend'' độc quyền. Với vỏ máy thường được làm từ hợp kim Magie cao cấp, chúng mang lại cảm giác chắc chắn, hầm hố nhưng vẫn tinh tế. Điểm nhấn không thể nhầm lẫn là hệ thống LED AlienFX RGB tùy chỉnh, đặc biệt là logo đầu người ngoài hành tinh phát sáng, tạo nên một bản sắc riêng biệt mà không game thủ nào có thể cưỡng lại.'),
+(37, 2, 20, 'heading', '1. Thiết kế \"Legend\" - Di sản từ tương lai'),
+(38, 2, 30, 'paragraph', 'Các dòng máy Alienware, đặc biệt là series X và M, đều tuân theo triết lý thiết kế \'Legend\' độc quyền. Với vỏ máy thường được làm từ hợp kim Magie cao cấp, chúng mang lại cảm giác chắc chắn, hầm hố nhưng vẫn tinh tế. Điểm nhấn không thể nhầm lẫn là hệ thống LED AlienFX RGB tùy chỉnh, đặc biệt là logo đầu người ngoài hành tinh phát sáng, tạo nên một bản sắc riêng biệt mà không game thủ nào có thể cưỡng lại.'),
 (39, 2, 40, 'image', 'images/laptop1.jpg'),
 (40, 2, 50, 'paragraph', '<strong>Thiết kế biểu tượng:</strong> Giúp bạn nổi bật ở bất kỳ đâu, thể hiện cá tính mạnh mẽ.<br><strong>Vật liệu cao cấp:</strong> Đảm bảo độ bền bỉ vượt trội so với các laptop gaming thông thường.'),
 (41, 2, 60, 'tip', 'Sử dụng Alienware Command Center để đồng bộ ánh sáng AlienFX với các tựa game yêu thích của bạn.'),
 (42, 2, 70, 'heading', '2. Cấu hình vượt trội - Sinh ra để thống trị'),
-(43, 2, 80, 'paragraph', 'Alienware luôn là một trong những hãng đầu tiên được trang bị phần cứng mới nhất và mạnh nhất. Các tùy chọn CPU thường là Intel Core i9 hoặc Ultra 9 dòng HX, kết hợp với GPU NVIDIA GeForce RTX 40-series hoặc 50-series (như RTX 5080/5090) với mức TGP tối đa. Điều này đảm bảo bạn có thể ''max settings'' mọi tựa game AAA nặng nhất ở độ phân giải QHD hoặc 4K mà không gặp bất kỳ khó khăn nào.'),
+(43, 2, 80, 'paragraph', 'Alienware luôn là một trong những hãng đầu tiên được trang bị phần cứng mới nhất và mạnh nhất. Các tùy chọn CPU thường là Intel Core i9 hoặc Ultra 9 dòng HX, kết hợp với GPU NVIDIA GeForce RTX 40-series hoặc 50-series (như RTX 5080/5090) với mức TGP tối đa. Điều này đảm bảo bạn có thể \'max settings\' mọi tựa game AAA nặng nhất ở độ phân giải QHD hoặc 4K mà không gặp bất kỳ khó khăn nào.'),
 (44, 2, 90, 'heading', '3. Phân loại các dòng Dell Alienware theo nhu cầu sử dụng'),
 (45, 2, 100, 'paragraph', 'Dell Alienware chia thành hai dòng chính, đáp ứng nhu cầu sử dụng khác nhau:'),
 (46, 2, 110, 'paragraph', '<strong>Alienware M Series – Hiệu năng cực đại, thiết kế truyền thống</strong><br>Các model: Alienware M15, M16, M18<br>Thiết kế lớn, nhiều cổng kết nối, tản nhiệt mạnh<br>Phù hợp cho: Game nặng, dựng phim, công việc đồ họa 3D chuyên sâu'),
@@ -201,27 +172,24 @@ INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `
 (53, 2, 180, 'paragraph', '<strong>Đáng giá?</strong> Nếu bạn tìm kiếm hiệu năng tối đa và một thiết kế mang tính biểu tượng, Alienware là câu trả lời.<br><strong>Lựa chọn:</strong> Dòng M-series cho sức mạnh tối đa, dòng X-series cho sự cân bằng giữa hiệu năng và tính di động mỏng nhẹ.'),
 (54, 2, 190, 'tip', 'Luôn kiểm tra các chương trình khuyến mãi, vì mức giá cao của Alienware thường đi kèm với các ưu đãi hấp dẫn.'),
 (55, 2, 200, 'tip', 'Công nghệ tản nhiệt Cryo-Tech trứ danh với keo tản nhiệt Element 31 và hệ thống 4 quạt (trên bản cao cấp) là yếu tố cốt lõi giữ cho máy luôn mát mẻ.'),
-
 (56, 3, 10, 'paragraph', 'Sự thành công vang dội của Meta Quest 3 đã thực sự định hình lại thị trường thực tế ảo (VR) tiêu dùng, biến công nghệ thực tế hỗn hợp (MR) từ một khái niệm xa xỉ thành một trải nghiệm phổ thông. Với thấu kính pancake mỏng nhẹ và tính năng passthrough (nhìn xuyên thấu) có màu, Quest 3 đã đặt ra một tiêu chuẩn mới. Tuy nhiên, cộng đồng công nghệ không bao giờ ngủ yên. Giờ đây, mọi ánh mắt đang đổ dồn về thế hệ tiếp theo: Meta Quest 4. Dù Meta vẫn giữ im lặng và chưa có bất kỳ thông báo chính thức nào, áp lực dành cho họ là rất lớn, đặc biệt khi các đối thủ cạnh tranh như Apple đã gia nhập cuộc chơi. Quest 4 được kỳ vọng sẽ không chỉ là một bản nâng cấp lặp lại, mà phải là một bước nhảy vọt thực sự. Hàng loạt tin đồn, bằng sáng chế bị rò rỉ và các phân tích công nghệ sâu sắc từ các chuyên gia trong ngành đã bắt đầu vẽ nên một bức tranh sơ bộ về những gì chúng ta có thể mong đợi. Chiếc kính thực tế ảo đột phá này có thể sẽ giải quyết những điểm yếu còn tồn tại của Quest 3 và mang đến những tính năng tiên phong. Hãy cùng chúng tôi tổng hợp và phân tích tất cả những thông tin và dự đoán đáng chú ý nhất xung quanh siêu phẩm đang rất được mong đợi này.'),
 (57, 3, 20, 'heading', 'Meta Quest 4: Ngày phát hành dự kiến'),
-(58, 3, 30, 'paragraph', 'Việc dự đoán ngày phát hành của Meta phụ thuộc nhiều vào việc phân tích chu kỳ sản phẩm trước đây của họ. Meta Quest 2 ra mắt vào tháng 10 năm 2020 và nhanh chóng trở thành một thành công thương mại khổng lồ. Mặc dù Quest Pro (2022) nhắm đến thị trường doanh nghiệp, phải đến tháng 10 năm 2023, tức là 3 năm sau, chúng ta mới thấy Quest 3. Tuy nhiên, nhiều nhà phân tích tin rằng Meta muốn quay lại chu kỳ 2 năm một lần để duy trì sự thống trị thị trường. Nếu tuân theo chu kỳ này, thời điểm hợp lý nhất cho Meta Quest 4 sẽ là vào khoảng **mùa thu năm 2025**, rất có thể sẽ được công bố tại sự kiện Meta Connect thường niên. Điều này đã được Giám đốc Công nghệ của Meta, Andrew Bosworth (Boz), gián tiếp xác nhận trong một buổi AMA (Hỏi tôi bất cứ điều gì), nơi ông gợi ý rằng một phiên bản kế nhiệm thực sự (chứ không phải một phiên bản "Pro") sẽ không xuất hiện sớm hơn 2025. Khoảng thời gian 2 năm này cũng cho phép các nhà phát triển game có đủ thời gian để khai thác tối đa sức mạnh của Quest 3 và chuẩn bị cho nền tảng mới.'),
+(58, 3, 30, 'paragraph', 'Việc dự đoán ngày phát hành của Meta phụ thuộc nhiều vào việc phân tích chu kỳ sản phẩm trước đây của họ. Meta Quest 2 ra mắt vào tháng 10 năm 2020 và nhanh chóng trở thành một thành công thương mại khổng lồ. Mặc dù Quest Pro (2022) nhắm đến thị trường doanh nghiệp, phải đến tháng 10 năm 2023, tức là 3 năm sau, chúng ta mới thấy Quest 3. Tuy nhiên, nhiều nhà phân tích tin rằng Meta muốn quay lại chu kỳ 2 năm một lần để duy trì sự thống trị thị trường. Nếu tuân theo chu kỳ này, thời điểm hợp lý nhất cho Meta Quest 4 sẽ là vào khoảng **mùa thu năm 2025**, rất có thể sẽ được công bố tại sự kiện Meta Connect thường niên. Điều này đã được Giám đốc Công nghệ của Meta, Andrew Bosworth (Boz), gián tiếp xác nhận trong một buổi AMA (Hỏi tôi bất cứ điều gì), nơi ông gợi ý rằng một phiên bản kế nhiệm thực sự (chứ không phải một phiên bản \"Pro\") sẽ không xuất hiện sớm hơn 2025. Khoảng thời gian 2 năm này cũng cho phép các nhà phát triển game có đủ thời gian để khai thác tối đa sức mạnh của Quest 3 và chuẩn bị cho nền tảng mới.'),
 (59, 3, 40, 'heading', 'Meta Quest 4: Mức giá dự kiến'),
 (60, 3, 50, 'paragraph', 'Giá cả là một yếu tố vô cùng quan trọng. Mức giá 299 USD của Quest 2 là một phần lớn tạo nên thành công của nó. Tuy nhiên, Quest 3 đã có một bước nhảy vọt lên 499 USD cho phiên bản cơ bản, một mức giá được cho là khá cao nhưng hoàn toàn hợp lý khi xét đến công nghệ thấu kính pancake và chip mạnh mẽ hơn. Với Quest 4, Meta đang đứng trước một thách thức lớn: cân bằng giữa việc tích hợp công nghệ tiên tiến (như màn hình độ phân giải cao hơn, cảm biến mới) và việc giữ mức giá tiếp cận được với đại đa số người dùng. Với sự xuất hiện của Apple Vision Pro ở mức giá 3499 USD, Meta hiểu rằng lợi thế lớn nhất của họ là phân khúc giá phổ thông. Do đó, nhiều khả năng Meta sẽ cố gắng giữ mức giá của Quest 4 trong khoảng tương tự, có thể là từ **499 đến 599 USD**, để duy trì tính cạnh tranh và đảm bảo khả năng tiếp cận đại chúng.'),
 (61, 3, 60, 'image', 'images/meta-quest-4-concept.jpg'),
 (62, 3, 70, 'heading', 'Những tính năng mới nào sẽ có trên Meta Quest 4?'),
-(63, 3, 80, 'paragraph', 'Trong khi Quest 3 là một cuộc cách mạng nhỏ khi mang MR đến mọi nhà, Quest 4 được kỳ vọng sẽ là một sự "tiến hóa" vượt bậc. Điều này có nghĩa là thay vì giới thiệu một khái niệm hoàn toàn mới, Meta có thể sẽ tập trung vào việc hoàn thiện và đánh bóng những gì Quest 3 đã làm tốt, đồng thời giải quyết triệt để những điểm yếu còn tồn tại. Trọng tâm sẽ là trải nghiệm người dùng: làm cho thiết bị nhẹ hơn, thoải mái hơn khi đeo trong thời gian dài, tăng độ phân giải màn hình để loại bỏ hiệu ứng "lưới" (screen-door effect), và quan trọng nhất là cải thiện chất lượng passthrough để trải nghiệm MR thực sự liền mạch.'),
+(63, 3, 80, 'paragraph', 'Trong khi Quest 3 là một cuộc cách mạng nhỏ khi mang MR đến mọi nhà, Quest 4 được kỳ vọng sẽ là một sự \"tiến hóa\" vượt bậc. Điều này có nghĩa là thay vì giới thiệu một khái niệm hoàn toàn mới, Meta có thể sẽ tập trung vào việc hoàn thiện và đánh bóng những gì Quest 3 đã làm tốt, đồng thời giải quyết triệt để những điểm yếu còn tồn tại. Trọng tâm sẽ là trải nghiệm người dùng: làm cho thiết bị nhẹ hơn, thoải mái hơn khi đeo trong thời gian dài, tăng độ phân giải màn hình để loại bỏ hiệu ứng \"lưới\" (screen-door effect), và quan trọng nhất là cải thiện chất lượng passthrough để trải nghiệm MR thực sự liền mạch.'),
 (64, 3, 90, 'heading', 'Thấu kính Pancake và Màn hình cải tiến'),
-(65, 3, 100, 'paragraph', 'Thấu kính Pancake là một trong những nâng cấp "thay đổi cuộc chơi" trên Quest 3, giúp thiết bị mỏng hơn đáng kể. Quest 4 chắc chắn sẽ tiếp tục sử dụng và cải tiến công nghệ này, có thể tập trung vào việc giảm thiểu các hiện tượng quang sai (chromatic aberration) và lóa (glare) còn sót lại, đồng thời tăng "điểm ngọt" (sweet spot) để hình ảnh rõ nét ở mọi góc nhìn. Về màn hình, đây là nơi được mong đợi nâng cấp nhiều nhất. Để cạnh tranh và mang lại trải nghiệm "siêu thực", Quest 4 cần một bước nhảy vọt về độ phân giải. Chúng ta có thể mong đợi Meta sẽ sử dụng các tấm nền Mini-LED tiên tiến hoặc thậm chí là Micro-OLED (mặc dù Micro-OLED có thể đẩy giá lên cao). Độ phân giải có thể đạt mức 4.5K hoặc thậm chí 5K mỗi mắt, đủ sắc nét để loại bỏ hoàn toàn hiệu ứng "lưới" và cho phép người dùng đọc văn bản nhỏ một cách thoải mái trong VR.'),
+(65, 3, 100, 'paragraph', 'Thấu kính Pancake là một trong những nâng cấp \"thay đổi cuộc chơi\" trên Quest 3, giúp thiết bị mỏng hơn đáng kể. Quest 4 chắc chắn sẽ tiếp tục sử dụng và cải tiến công nghệ này, có thể tập trung vào việc giảm thiểu các hiện tượng quang sai (chromatic aberration) và lóa (glare) còn sót lại, đồng thời tăng \"điểm ngọt\" (sweet spot) để hình ảnh rõ nét ở mọi góc nhìn. Về màn hình, đây là nơi được mong đợi nâng cấp nhiều nhất. Để cạnh tranh và mang lại trải nghiệm \"siêu thực\", Quest 4 cần một bước nhảy vọt về độ phân giải. Chúng ta có thể mong đợi Meta sẽ sử dụng các tấm nền Mini-LED tiên tiến hoặc thậm chí là Micro-OLED (mặc dù Micro-OLED có thể đẩy giá lên cao). Độ phân giải có thể đạt mức 4.5K hoặc thậm chí 5K mỗi mắt, đủ sắc nét để loại bỏ hoàn toàn hiệu ứng \"lưới\" và cho phép người dùng đọc văn bản nhỏ một cách thoải mái trong VR.'),
 (66, 3, 110, 'heading', 'Thêm sức mạnh với chip Snapdragon mới'),
 (67, 3, 120, 'paragraph', 'Quest 3 là thiết bị đầu tiên sử dụng chip Snapdragon XR2 Gen 2 mạnh mẽ, mang lại hiệu suất đồ họa gấp đôi Quest 2. Theo lẽ tự nhiên, Quest 4 sẽ được trang bị phiên bản kế nhiệm, có thể là **Snapdragon XR2 Gen 3 hoặc Gen 4**. Con chip mới này sẽ rất quan trọng, không chỉ để gánh vác các màn hình có độ phân giải cao hơn mà còn để xử lý các tác vụ phức tạp khác. Hiệu năng xử lý đồ họa (GPU) mạnh mẽ hơn sẽ cho phép các nhà phát triển tạo ra các tựa game có đồ họa tiệm cận console. Quan trọng không kém là bộ xử lý thần kinh (NPU) dành cho AI. Một NPU mạnh mẽ hơn sẽ là chìa khóa để cải thiện khả năng theo dõi tay, nhận diện môi trường 3D (environment mapping) và chạy các mô hình AI tiên tiến ngay trên thiết bị mà không cần kết nối.'),
 (68, 3, 130, 'heading', 'Cải thiện Passthrough và Thực tế hỗn hợp (Mixed Reality)'),
-(69, 3, 140, 'paragraph', 'Tính năng Passthrough có màu trên Quest 3 là điểm nhấn, nhưng bất kỳ ai đã sử dụng đều thừa nhận nó còn xa mới hoàn hảo. Hình ảnh vẫn còn khá nhiễu hạt (grainy), đặc biệt là trong điều kiện ánh sáng yếu, và hiện tượng "cong vênh" (warping) kỹ thuật số khi vật thể di chuyển nhanh hoặc ở gần vẫn xảy ra. Quest 4 được kỳ vọng sẽ giải quyết triệt để vấn đề này. Điều này đòi hỏi một hệ thống camera có độ phân giải cao hơn nhiều, cảm biến tốt hơn để xử lý ánh sáng yếu, và quan trọng nhất là sức mạnh xử lý từ chip mới để tái tạo không gian 3D (3D reconstruction) một cách chính xác và giảm độ trễ xuống mức tối thiểu. Mục tiêu cuối cùng là mang lại trải nghiệm Thực tế hỗn hợp (MR) mượt mà và chân thực đến mức người dùng khó có thể phân biệt được đâu là thật, đâu là ảo.'),
+(69, 3, 140, 'paragraph', 'Tính năng Passthrough có màu trên Quest 3 là điểm nhấn, nhưng bất kỳ ai đã sử dụng đều thừa nhận nó còn xa mới hoàn hảo. Hình ảnh vẫn còn khá nhiễu hạt (grainy), đặc biệt là trong điều kiện ánh sáng yếu, và hiện tượng \"cong vênh\" (warping) kỹ thuật số khi vật thể di chuyển nhanh hoặc ở gần vẫn xảy ra. Quest 4 được kỳ vọng sẽ giải quyết triệt để vấn đề này. Điều này đòi hỏi một hệ thống camera có độ phân giải cao hơn nhiều, cảm biến tốt hơn để xử lý ánh sáng yếu, và quan trọng nhất là sức mạnh xử lý từ chip mới để tái tạo không gian 3D (3D reconstruction) một cách chính xác và giảm độ trễ xuống mức tối thiểu. Mục tiêu cuối cùng là mang lại trải nghiệm Thực tế hỗn hợp (MR) mượt mà và chân thực đến mức người dùng khó có thể phân biệt được đâu là thật, đâu là ảo.'),
 (70, 3, 150, 'heading', 'Bộ điều khiển mới cho Quest 4?'),
 (71, 3, 160, 'paragraph', 'Bộ điều khiển Touch Plus của Quest 3 là một cải tiến tốt khi loại bỏ vòng theo dõi, nhưng chúng vẫn dựa vào camera của kính để định vị (inside-out), dẫn đến việc mất theo dõi khi tay ở ngoài tầm nhìn. Bộ điều khiển Quest Pro tự theo dõi (self-tracking) nhưng lại quá đắt. Có tin đồn rằng Meta đang nghiên cứu các công nghệ theo dõi tay (hand-tracking) tiên tiến hơn nữa, sử dụng AI và có thể cả các cảm biến mới (như camera hồng ngoại) để đạt được độ chính xác tuyệt đối. Tương lai của Quest 4 có thể là tập trung vào tương tác hoàn toàn bằng tay, biến bộ điều khiển thành một phụ kiện tùy chọn (optional accessory) cho các game thủ hardcore, hoặc ít nhất là một bộ điều khiển nhỏ gọn hơn, tinh tế hơn.'),
 (72, 3, 170, 'heading', 'Kết luận: Quest 4 là bước tiến hợp lý'),
-(73, 3, 180, 'paragraph', 'Tóm lại, Meta Quest 4 hứa hẹn sẽ là một bản nâng cấp "trưởng thành" và vô cùng đáng giá. Nó có thể không tạo ra một cú sốc như Quest 3 đã làm với MR, nhưng nó sẽ tập trung vào việc mài giũa trải nghiệm đó đến mức hoàn hảo. Mọi thứ chúng ta mong đợi đều xoay quanh sự tinh tế: hình ảnh sắc nét hơn để tăng cảm giác "hiện diện", hiệu năng mạnh mẽ hơn để mở khóa các thế giới ảo phức tạp, và một trải nghiệm thực tế hỗn hợp liền mạch đến mức chúng ta quên rằng mình đang đeo kính. Đây là bước đi hợp lý và cần thiết để Meta củng cố vị trí dẫn đầu của mình. Dù phải đến tận năm 2025 chúng ta mới có thông tin chính thức, nhưng những gì đang được đồn đoán cũng đủ để khiến toàn bộ cộng đồng VR phải phấn khích và mong chờ.'),
-
-
+(73, 3, 180, 'paragraph', 'Tóm lại, Meta Quest 4 hứa hẹn sẽ là một bản nâng cấp \"trưởng thành\" và vô cùng đáng giá. Nó có thể không tạo ra một cú sốc như Quest 3 đã làm với MR, nhưng nó sẽ tập trung vào việc mài giũa trải nghiệm đó đến mức hoàn hảo. Mọi thứ chúng ta mong đợi đều xoay quanh sự tinh tế: hình ảnh sắc nét hơn để tăng cảm giác \"hiện diện\", hiệu năng mạnh mẽ hơn để mở khóa các thế giới ảo phức tạp, và một trải nghiệm thực tế hỗn hợp liền mạch đến mức chúng ta quên rằng mình đang đeo kính. Đây là bước đi hợp lý và cần thiết để Meta củng cố vị trí dẫn đầu của mình. Dù phải đến tận năm 2025 chúng ta mới có thông tin chính thức, nhưng những gì đang được đồn đoán cũng đủ để khiến toàn bộ cộng đồng VR phải phấn khích và mong chờ.'),
 (74, 4, 10, 'paragraph', 'Trí tuệ nhân tạo (AI) đang thay đổi cách chúng ta học tập và làm việc. Ngày nay, có rất nhiều ứng dụng AI miễn phí được thiết kế đặc biệt để hỗ trợ học sinh, sinh viên và những người ham học hỏi. Dưới đây là danh sách 10 công cụ AI mạnh mẽ và hữu ích nhất mà bạn không nên bỏ qua.'),
 (75, 4, 20, 'heading', '1. Socratic by Google'),
 (76, 4, 30, 'paragraph', 'Đây là một trợ lý học tập tuyệt vời được Google hậu thuẫn, sử dụng công nghệ AI và nhận dạng hình ảnh tiên tiến. Thay vì gõ các câu hỏi phức tạp, học sinh, sinh viên chỉ cần dùng camera điện thoại để chụp ảnh một bài toán, một công thức hóa học, hoặc một câu hỏi trắc nghiệm. Socratic sẽ ngay lập tức phân tích và truy xuất các nguồn tài liệu, video hướng dẫn, và cung cấp lời giải chi tiết từng bước. Nó hoạt động như một gia sư 24/7, hỗ trợ hầu hết các môn học từ Toán, Lý, Hóa đến Lịch sử, giúp người học hiểu sâu gốc rễ của vấn đề.'),
@@ -230,19 +198,19 @@ INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `
 (79, 4, 60, 'paragraph', 'Grammarly đã vượt xa một công cụ kiểm tra lỗi ngữ pháp và chính tả thông thường. Nó hoạt động như một trợ lý biên tập cá nhân, sử dụng AI để phân tích văn bản của bạn theo thời gian thực. Phiên bản miễn phí không chỉ sửa lỗi sai, mà còn giúp bạn cải thiện văn phong, gợi ý cách diễn đạt câu chữ rõ ràng, súc tích và chuyên nghiệp hơn. Nó cung cấp giải thích chi tiết cho các lỗi, giúp bạn học hỏi từ chính sai lầm của mình. Đây là công cụ không thể thiếu cho bất kỳ ai muốn nâng cao kỹ năng viết, đặc biệt là tiếng Anh, từ soạn email công việc, viết luận văn đến sáng tạo nội dung.'),
 (80, 4, 70, 'image', 'images/ai-app-grammarly.jpg'),
 (81, 4, 80, 'heading', '3. Duolingo'),
-(82, 4, 90, 'paragraph', 'Duolingo là ví dụ điển hình của việc "game hóa" (gamification) giáo dục thành công. Ứng dụng sử dụng AI để tạo ra một lộ trình học tập được cá nhân hóa sâu sắc. Nó theo dõi hiệu suất của bạn, xác định điểm mạnh và điểm yếu, sau đó tự động điều chỉnh độ khó của các bài tập và flashcard. Nếu bạn liên tục sai một cấu trúc ngữ pháp, AI sẽ lặp lại nó thường xuyên hơn. Quá trình học được thiết kế như một trò chơi với điểm kinh nghiệm, "streak" (chuỗi ngày học) và bảng xếp hạng, tạo động lực mạnh mẽ để người dùng quay lại mỗi ngày. Đây là cách tuyệt vời để xây dựng thói quen và bắt đầu học một ngôn ngữ mới.'),
+(82, 4, 90, 'paragraph', 'Duolingo là ví dụ điển hình của việc \"game hóa\" (gamification) giáo dục thành công. Ứng dụng sử dụng AI để tạo ra một lộ trình học tập được cá nhân hóa sâu sắc. Nó theo dõi hiệu suất của bạn, xác định điểm mạnh và điểm yếu, sau đó tự động điều chỉnh độ khó của các bài tập và flashcard. Nếu bạn liên tục sai một cấu trúc ngữ pháp, AI sẽ lặp lại nó thường xuyên hơn. Quá trình học được thiết kế như một trò chơi với điểm kinh nghiệm, \"streak\" (chuỗi ngày học) và bảng xếp hạng, tạo động lực mạnh mẽ để người dùng quay lại mỗi ngày. Đây là cách tuyệt vời để xây dựng thói quen và bắt đầu học một ngôn ngữ mới.'),
 (83, 4, 100, 'image', 'images/ai-app-duolingo.jpg'),
 (84, 4, 110, 'heading', '4. ChatGPT & Google Gemini'),
 (85, 4, 120, 'paragraph', 'Hai chatbot AI hàng đầu này đã trở thành những gia sư cá nhân toàn năng. Bạn có thể đặt câu hỏi về bất kỳ chủ đề nào, từ lịch sử, văn học đến lập trình phức tạp. Chúng có khả năng giải thích các khái niệm khó một cách đơn giản, tóm tắt các tài liệu học thuật dài, và thậm chí tạo ra các câu hỏi ôn tập hoặc bài luận mẫu. Thay vì tìm kiếm trên Google, sinh viên có thể đối thoại trực tiếp với AI để đào sâu kiến thức, brainstorm ý tưởng và nhận phản hồi ngay lập tức. Phiên bản miễn phí của cả hai đều cực kỳ mạnh mẽ cho hầu hết các nhu cầu học tập.'),
 (86, 4, 130, 'image', 'images/ai-app-chatbots.jpg'),
 (87, 4, 140, 'heading', '5. Quizlet'),
-(88, 4, 150, 'paragraph', 'Quizlet đã cách mạng hóa việc học bằng thẻ ghi nhớ (flashcards). Công cụ này sử dụng AI để giúp bạn tạo các bộ thẻ học tập từ tài liệu của mình, hoặc tìm kiếm trong kho dữ liệu khổng lồ do người dùng khác tạo ra. Tính năng "Learn" thông minh của nó sẽ ưu tiên lặp lại các câu hỏi mà bạn hay trả lời sai, áp dụng phương pháp lặp lại ngắt quãng để tối ưu hóa việc ghi nhớ. Quizlet biến việc ôn thi khô khan thành các trò chơi tương tác, giúp kiến thức được củng cố một cách hiệu quả và lâu dài.'),
+(88, 4, 150, 'paragraph', 'Quizlet đã cách mạng hóa việc học bằng thẻ ghi nhớ (flashcards). Công cụ này sử dụng AI để giúp bạn tạo các bộ thẻ học tập từ tài liệu của mình, hoặc tìm kiếm trong kho dữ liệu khổng lồ do người dùng khác tạo ra. Tính năng \"Learn\" thông minh của nó sẽ ưu tiên lặp lại các câu hỏi mà bạn hay trả lời sai, áp dụng phương pháp lặp lại ngắt quãng để tối ưu hóa việc ghi nhớ. Quizlet biến việc ôn thi khô khan thành các trò chơi tương tác, giúp kiến thức được củng cố một cách hiệu quả và lâu dài.'),
 (89, 4, 160, 'image', 'images/ai-app-quizlet.jpg'),
 (90, 4, 170, 'heading', '6. Otter.ai'),
 (91, 4, 180, 'paragraph', 'Otter.ai là một công cụ cứu cánh cho sinh viên trong các buổi học trực tuyến hoặc các bài giảng dài. Nó sử dụng AI để ghi âm và chuyển đổi giọng nói thành văn bản (speech-to-text) theo thời gian thực với độ chính xác cao. Nó không chỉ ghi lại lời giảng của giáo viên mà còn tự động nhận diện người nói khác nhau và tạo ra một bản ghi chú văn bản hoàn chỉnh, có thể tìm kiếm được. Điều này giúp sinh viên tập trung vào việc lắng nghe và hiểu bài thay vì cắm cúi ghi chép, đồng thời dễ dàng xem lại và tìm kiếm thông tin quan trọng khi ôn tập.'),
 (92, 4, 190, 'image', 'images/ai-app-otter.jpg'),
 (93, 4, 200, 'heading', '7. WolframAlpha'),
-(94, 4, 210, 'paragraph', 'Được mệnh danh là "công cụ tri thức tính toán", WolframAlpha không giống như một công cụ tìm kiếm thông thường. Thay vì trả về các liên kết web, nó trực tiếp tính toán và đưa ra câu trả lời. Nó cực kỳ mạnh mẽ trong các lĩnh vực khoa học, toán học, thống kê và kỹ thuật. Bạn có thể yêu cầu nó giải một phương trình vi phân phức tạp, vẽ đồ thị hàm số 3D, hoặc phân tích dữ liệu. Đây là một công cụ không thể thiếu cho sinh viên các ngành STEM, cung cấp các giải pháp chính xác và trực quan hóa dữ liệu phức tạp.'),
+(94, 4, 210, 'paragraph', 'Được mệnh danh là \"công cụ tri thức tính toán\", WolframAlpha không giống như một công cụ tìm kiếm thông thường. Thay vì trả về các liên kết web, nó trực tiếp tính toán và đưa ra câu trả lời. Nó cực kỳ mạnh mẽ trong các lĩnh vực khoa học, toán học, thống kê và kỹ thuật. Bạn có thể yêu cầu nó giải một phương trình vi phân phức tạp, vẽ đồ thị hàm số 3D, hoặc phân tích dữ liệu. Đây là một công cụ không thể thiếu cho sinh viên các ngành STEM, cung cấp các giải pháp chính xác và trực quan hóa dữ liệu phức tạp.'),
 (95, 4, 220, 'image', 'images/ai-app-wolfram.jpg'),
 (96, 4, 230, 'heading', '8. Anki'),
 (97, 4, 240, 'paragraph', 'Anki là một ứng dụng flashcard mã nguồn mở, được cộng đồng học thuật đánh giá rất cao. Sức mạnh cốt lõi của nó là thuật toán lặp lại ngắt quãng (Spaced Repetition System - SRS) do AI điều khiển. Thuật toán này tính toán chính xác thời điểm hoàn hảo để bạn ôn lại một kiến thức (một thẻ), ngay trước khi bạn chuẩn bị quên nó. Phương pháp này đã được khoa học chứng minh là cực kỳ hiệu quả để ghi nhớ thông tin lâu dài, đặc biệt hữu ích cho việc học từ vựng, công thức, hoặc các sự kiện lịch sử.'),
@@ -255,7 +223,6 @@ INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `
 (104, 4, 310, 'image', 'images/ai-app-knowji.jpg'),
 (105, 4, 320, 'heading', 'Kết luận'),
 (106, 4, 330, 'paragraph', 'Việc tích hợp AI vào quá trình học tập không còn là khoa học viễn tưởng. Với 10 công cụ miễn phí trên, bạn có thể tăng tốc độ học, cải thiện hiệu suất và khám phá kiến thức một cách thông minh hơn. Hãy thử nghiệm và tìm ra ứng dụng phù hợp nhất với phong cách học của bạn!'),
-
 (220, 6, 10, 'paragraph', 'Dell XPS 13 9350 (2025) tiếp tục khẳng định vị thế là một trong những chiếc ultrabook cao cấp đáng sở hữu nhất. Máy không chỉ gây ấn tượng với thiết kế mỏng nhẹ sang trọng mà còn được trang bị cấu hình mạnh mẽ, đặc biệt là màn hình xuất sắc, đáp ứng hoàn hảo nhu cầu làm việc lẫn giải trí.'),
 (221, 6, 20, 'heading', 'Màn hình sắc nét, tốc độ quét cao'),
 (222, 6, 30, 'paragraph', 'Trải nghiệm thị giác trên Dell XPS 13 9350 là một điểm nhấn đắt giá. Máy được trang bị màn hình 13.4 inch với tùy chọn độ phân giải lên đến 3.5K (3456 x 2160) sử dụng công nghệ tấm nền OLED cảm ứng. Điều này mang lại màu đen sâu tuyệt đối, độ tương phản vô hạn và màu sắc rực rỡ, đạt chuẩn 100% DCI-P3, lý tưởng cho công việc sáng tạo. Không chỉ sắc nét, màn hình còn có tần số quét 120Hz, giúp mọi chuyển động, từ cuộn trang web đến xem phim hành động, đều mượt mà và giảm thiểu hiện tượng xé hình.'),
@@ -266,11 +233,9 @@ INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `
 (227, 6, 80, 'paragraph', 'Dell XPS 13 9350 tiếp tục ngôn ngữ thiết kế tối giản đã làm nên thương hiệu. Toàn bộ thân máy được chế tác từ một khối nhôm CNC nguyên khối, tạo nên sự chắc chắn và cao cấp. Máy cực kỳ mỏng nhẹ với trọng lượng chỉ khoảng 1.19kg, dễ dàng mang theo bên mình. Viền màn hình InfinityEdge siêu mỏng ở cả 4 cạnh mang lại không gian hiển thị tràn viền ấn tượng. Đặc biệt, khu vực bàn phím và touchpad được thiết kế liền lạc, với dải phím F chức năng dạng cảm ứng hiện đại.'),
 (228, 6, 90, 'image', 'images/xps-9350-design.jpg'),
 (229, 6, 100, 'heading', 'Bàn phím, Touchpad và Cổng kết nối'),
-(230, 6, 110, 'paragraph', 'Máy sử dụng bàn phím "zero-lattice" với các phím bấm lớn, hành trình phím tốt, cho cảm giác gõ êm và chính xác. Touchpad haptic ẩn dưới lớp kính cho phản hồi rung chính xác và mượt mà. Để đánh đổi cho độ mỏng, XPS 13 9350 đã tối giản cổng kết nối, chỉ trang bị hai cổng USB-C hỗ trợ Thunderbolt 4, cho phép sạc nhanh, truyền dữ liệu tốc độ cao và xuất màn hình ngoài.'),
+(230, 6, 110, 'paragraph', 'Máy sử dụng bàn phím \"zero-lattice\" với các phím bấm lớn, hành trình phím tốt, cho cảm giác gõ êm và chính xác. Touchpad haptic ẩn dưới lớp kính cho phản hồi rung chính xác và mượt mà. Để đánh đổi cho độ mỏng, XPS 13 9350 đã tối giản cổng kết nối, chỉ trang bị hai cổng USB-C hỗ trợ Thunderbolt 4, cho phép sạc nhanh, truyền dữ liệu tốc độ cao và xuất màn hình ngoài.'),
 (231, 6, 120, 'heading', 'Thời lượng pin ấn tượng'),
 (232, 6, 130, 'paragraph', 'Nhờ sự tối ưu của chip Intel Core Ultra tiết kiệm điện, Dell XPS 13 9350 cho thời lượng pin rất ấn tượng. Viên pin 55Whr có thể đáp ứng một ngày làm việc văn phòng trọn vẹn với các tác vụ cơ bản. Công nghệ sạc nhanh ExpressCharge cũng giúp sạc đầy pin nhanh chóng, sẵn sàng cho công việc của bạn.'),
-
--- NỘI DUNG BÀI VIẾT 7 (GALAXY Z FOLD 7 - THEO CELLPHONES)
 (233, 7, 10, 'heading', '1. Giá Samsung Galaxy Z Fold 7 bao nhiêu?'),
 (234, 7, 20, 'paragraph', 'Samsung Galaxy Z Fold 7 chính thức mở bán với giá khởi điểm 46.990.000 đồng cho phiên bản 12GB RAM / 256GB bộ nhớ trong. Phiên bản 12GB RAM / 512GB bộ nhớ trong có giá 50.990.000 đồng. Tại CellphoneS, khách hàng có thể nhận được ưu đãi tốt hơn, ví dụ giá cho bản 256GB là 43.990.000đ và bản 512GB là 47.990.000đ. Đặc biệt, chương trình thu cũ đổi mới có thể giúp giảm giá thêm, đưa giá khởi điểm chỉ còn từ 41.490.000đ.'),
 (235, 7, 30, 'heading', '2. Samsung Galaxy Z Fold 7 có gì mới?'),
@@ -304,32 +269,27 @@ INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `
 (263, 7, 320, 'paragraph', '(Phần này thường trích dẫn nhận xét, đánh giá từ các reviewer công nghệ uy tín hoặc người nổi tiếng đã trải nghiệm sản phẩm, nhấn mạnh vào các ưu điểm như thiết kế, màn hình, hiệu năng, camera.)'),
 (264, 7, 330, 'image', 'images/danhgia11.jpg'),
 (265, 7, 340, 'image', 'images/danhgia2.jpg'),
-
-
--- NỘI DUNG BÀI VIẾT 8 (AI TẠO SINH - PHIÊN BẢN DÀI)
 (266, 8, 10, 'paragraph', 'Trí tuệ nhân tạo tạo sinh (Generative AI) đã vượt qua ranh giới của những phòng thí nghiệm nghiên cứu để trở thành một trong những làn sóng công nghệ có sức ảnh hưởng sâu rộng nhất trong lịch sử hiện đại. Nó đang tái định hình cơ bản cách chúng ta làm việc, sáng tạo nội dung, giao tiếp và thậm chí là tư duy. Từ khả năng phi thường trong việc tạo ra những tác phẩm nghệ thuật kỹ thuật số phức tạp chỉ từ vài dòng mô tả, đến việc tự động viết mã nguồn, soạn thảo những bản nhạc du dương, hay tạo ra các kịch bản phim độc đáo, AI tạo sinh đang mở ra một kỷ nguyên mới với những tiềm năng gần như vô hạn. Sức mạnh này không chỉ dừng lại ở việc tự động hóa các tác vụ lặp đi lặp lại, mà còn khuếch đại khả năng sáng tạo của con người, cho phép chúng ta khám phá những ý tưởng và giải pháp mà trước đây không thể tưởng tượng được. Tuy nhiên, sự phát triển vũ bão này cũng đặt ra những thách thức mới về đạo đức, an toàn và việc làm. Bài viết này sẽ đi sâu vào việc phân tích những xu hướng phát triển then chốt đang định hình tương lai của lĩnh vực đầy biến động và hứa hẹn này.'),
 (267, 8, 20, 'heading', '1. Mô hình đa phương thức (Multimodal Models): Phá vỡ rào cản giao tiếp'),
 (268, 8, 30, 'paragraph', 'Một trong những xu hướng rõ ràng và quan trọng nhất hiện nay là sự trỗi dậy mạnh mẽ của các mô hình AI đa phương thức (Multimodal AI). Các thế hệ AI trước đây thường chỉ chuyên biệt xử lý một loại dữ liệu duy nhất – ví dụ, mô hình ngôn ngữ lớn (LLM) chỉ làm việc với văn bản, trong khi các mô hình khác tập trung vào nhận dạng hoặc tạo ra hình ảnh. Tuy nhiên, các mô hình tiên tiến như GPT-4 của OpenAI, Gemini của Google, hay Claude 3 của Anthropic đã phá vỡ rào cản này. Chúng có khả năng hiểu, xử lý và tạo ra nội dung kết hợp linh hoạt nhiều định dạng dữ liệu khác nhau: văn bản, hình ảnh, âm thanh, video, và thậm chí cả mã nguồn. Người dùng giờ đây có thể tải lên một bức ảnh chụp phong cảnh và yêu cầu AI viết một bài thơ về nó, mô tả một kịch bản phim và để AI tạo ra một đoạn storyboard trực quan, hoặc cung cấp một đoạn nhạc và yêu cầu AI phân tích cấu trúc, đề xuất hòa âm. Khả năng tương tác đa giác quan này không chỉ làm cho AI trở nên mạnh mẽ và linh hoạt hơn trong các ứng dụng thực tế, mà còn đưa nó đến gần hơn với cách con người giao tiếp và cảm nhận thế giới một cách tự nhiên.'),
 (269, 8, 40, 'image', 'images/generative-ai-multimodal.jpg'),
 (270, 8, 50, 'heading', '2. Cá nhân hóa và Tinh chỉnh (Personalization and Fine-tuning): AI dành riêng cho bạn'),
-(271, 8, 60, 'paragraph', 'Trong khi các mô hình nền tảng (foundation models) lớn như GPT-4 hay Llama 3 sở hữu kiến thức tổng quát khổng lồ, xu hướng tiếp theo là làm cho chúng trở nên chuyên biệt và phù hợp hơn với nhu cầu cụ thể của từng cá nhân hoặc tổ chức. Các kỹ thuật "tinh chỉnh" (fine-tuning) đang ngày càng trở nên dễ tiếp cận hơn, cho phép các doanh nghiệp và thậm chí người dùng cá nhân có thể huấn luyện thêm các mô hình nền tảng trên bộ dữ liệu riêng của họ. Điều này mở ra vô số khả năng: một công ty luật có thể tinh chỉnh mô hình để tạo ra một chatbot chuyên sâu về luật pháp, một nhà văn có thể tạo ra trợ lý ảo bắt chước văn phong độc đáo của mình, hay một studio thiết kế có thể huấn luyện AI để tạo ra các sản phẩm tuân thủ nghiêm ngặt theo bộ nhận diện thương hiệu. Hơn nữa, các kỹ thuật như Retrieval-Augmented Generation (RAG) cho phép AI truy cập và sử dụng thông tin từ các nguồn dữ liệu bên ngoài (như cơ sở dữ liệu nội bộ của công ty) trong thời gian thực mà không cần huấn luyện lại. Xu hướng cá nhân hóa sâu sắc này đang biến AI từ một công cụ chung, một kích cỡ cho tất cả, thành một trợ lý thông minh, một đối tác được "may đo" riêng cho từng người dùng.'),
-(272, 8, 70, 'image', 'images/generative-ai-finetuning.jpg'), /* Thêm ảnh minh họa nếu có */
+(271, 8, 60, 'paragraph', 'Trong khi các mô hình nền tảng (foundation models) lớn như GPT-4 hay Llama 3 sở hữu kiến thức tổng quát khổng lồ, xu hướng tiếp theo là làm cho chúng trở nên chuyên biệt và phù hợp hơn với nhu cầu cụ thể của từng cá nhân hoặc tổ chức. Các kỹ thuật \"tinh chỉnh\" (fine-tuning) đang ngày càng trở nên dễ tiếp cận hơn, cho phép các doanh nghiệp và thậm chí người dùng cá nhân có thể huấn luyện thêm các mô hình nền tảng trên bộ dữ liệu riêng của họ. Điều này mở ra vô số khả năng: một công ty luật có thể tinh chỉnh mô hình để tạo ra một chatbot chuyên sâu về luật pháp, một nhà văn có thể tạo ra trợ lý ảo bắt chước văn phong độc đáo của mình, hay một studio thiết kế có thể huấn luyện AI để tạo ra các sản phẩm tuân thủ nghiêm ngặt theo bộ nhận diện thương hiệu. Hơn nữa, các kỹ thuật như Retrieval-Augmented Generation (RAG) cho phép AI truy cập và sử dụng thông tin từ các nguồn dữ liệu bên ngoài (như cơ sở dữ liệu nội bộ của công ty) trong thời gian thực mà không cần huấn luyện lại. Xu hướng cá nhân hóa sâu sắc này đang biến AI từ một công cụ chung, một kích cỡ cho tất cả, thành một trợ lý thông minh, một đối tác được \"may đo\" riêng cho từng người dùng.'),
+(272, 8, 70, 'image', 'images/generative-ai-finetuning.jpg'),
 (273, 8, 80, 'heading', '3. AI tự chủ và các Agent thông minh: Từ phản hồi đến hành động'),
-(274, 8, 90, 'paragraph', 'Thế hệ tiếp theo của AI tạo sinh không chỉ dừng lại ở việc tạo ra nội dung theo yêu cầu, mà còn tiến tới khả năng hành động tự chủ trong thế giới số và thậm chí là thế giới vật lý. Khái niệm về các "AI agent" (tác tử AI) thông minh đang thu hút sự chú ý lớn. Thay vì chỉ đơn thuần phản hồi các câu lệnh của người dùng, các agent này được thiết kế để có thể tự đặt ra mục tiêu, xây dựng kế hoạch chi tiết, và thực hiện một chuỗi các hành động phức tạp để hoàn thành nhiệm vụ được giao. Hãy tưởng tượng bạn có thể yêu cầu một AI agent "tìm và đặt vé máy bay giá rẻ nhất từ Hà Nội đến TP.HCM vào cuối tuần tới, ưu tiên chuyến bay buổi sáng và hãng hàng không Vietnam Airlines". Agent này sẽ tự động duyệt qua các trang web đặt vé, so sánh giá, chọn chuyến bay phù hợp, điền thông tin và hoàn tất việc đặt vé thay cho bạn. Các dự án như Auto-GPT hay BabyAGI, dù còn sơ khai, đã cho thấy tiềm năng của các agent tự chủ trong việc tự động hóa các quy trình phức tạp, từ nghiên cứu thị trường, quản lý dự án đến điều khiển các thiết bị thông minh. Đây là một bước tiến quan trọng hướng tới một AI thực sự có khả năng tương tác và hành động một cách độc lập.'),
+(274, 8, 90, 'paragraph', 'Thế hệ tiếp theo của AI tạo sinh không chỉ dừng lại ở việc tạo ra nội dung theo yêu cầu, mà còn tiến tới khả năng hành động tự chủ trong thế giới số và thậm chí là thế giới vật lý. Khái niệm về các \"AI agent\" (tác tử AI) thông minh đang thu hút sự chú ý lớn. Thay vì chỉ đơn thuần phản hồi các câu lệnh của người dùng, các agent này được thiết kế để có thể tự đặt ra mục tiêu, xây dựng kế hoạch chi tiết, và thực hiện một chuỗi các hành động phức tạp để hoàn thành nhiệm vụ được giao. Hãy tưởng tượng bạn có thể yêu cầu một AI agent \"tìm và đặt vé máy bay giá rẻ nhất từ Hà Nội đến TP.HCM vào cuối tuần tới, ưu tiên chuyến bay buổi sáng và hãng hàng không Vietnam Airlines\". Agent này sẽ tự động duyệt qua các trang web đặt vé, so sánh giá, chọn chuyến bay phù hợp, điền thông tin và hoàn tất việc đặt vé thay cho bạn. Các dự án như Auto-GPT hay BabyAGI, dù còn sơ khai, đã cho thấy tiềm năng của các agent tự chủ trong việc tự động hóa các quy trình phức tạp, từ nghiên cứu thị trường, quản lý dự án đến điều khiển các thiết bị thông minh. Đây là một bước tiến quan trọng hướng tới một AI thực sự có khả năng tương tác và hành động một cách độc lập.'),
 (275, 8, 100, 'image', 'images/generative-ai-agentss.jpg'),
 (276, 8, 110, 'heading', '4. Tích hợp sâu vào ứng dụng và quy trình làm việc: AI trở nên vô hình'),
-(277, 8, 120, 'paragraph', 'Thay vì tồn tại như những ứng dụng độc lập, AI tạo sinh đang ngày càng được tích hợp một cách liền mạch và gần như "vô hình" vào chính các công cụ và nền tảng mà chúng ta sử dụng hàng ngày. Microsoft Copilot được nhúng sâu vào bộ ứng dụng Microsoft 365 (Word, Excel, PowerPoint, Outlook), giúp người dùng soạn thảo văn bản, phân tích dữ liệu, tạo bài thuyết trình hay quản lý email hiệu quả hơn. Adobe Firefly trở thành một phần không thể thiếu trong Photoshop và Illustrator, cho phép các nhà thiết kế đồ họa mở rộng, xóa bỏ hay tạo mới các yếu tố hình ảnh chỉ bằng vài câu lệnh. GitHub Copilot hỗ trợ lập trình viên viết code nhanh hơn và chính xác hơn ngay trong môi trường phát triển (IDE). Xu hướng tích hợp sâu này mang lại lợi ích kép: người dùng có thể tận dụng sức mạnh của AI mà không cần thay đổi quy trình làm việc quen thuộc, đồng thời AI cũng học hỏi được ngữ cảnh và nhu cầu cụ thể của người dùng để đưa ra những gợi ý và hỗ trợ phù hợp hơn. AI đang dần trở thành một lớp thông minh ẩn bên dưới, nâng cao năng suất và khơi nguồn sáng tạo một cách tự nhiên.'),
-(278, 8, 130, 'image', 'images/generative-ai-integration.jpg'), /* Thêm ảnh minh họa nếu có */
+(277, 8, 120, 'paragraph', 'Thay vì tồn tại như những ứng dụng độc lập, AI tạo sinh đang ngày càng được tích hợp một cách liền mạch và gần như \"vô hình\" vào chính các công cụ và nền tảng mà chúng ta sử dụng hàng ngày. Microsoft Copilot được nhúng sâu vào bộ ứng dụng Microsoft 365 (Word, Excel, PowerPoint, Outlook), giúp người dùng soạn thảo văn bản, phân tích dữ liệu, tạo bài thuyết trình hay quản lý email hiệu quả hơn. Adobe Firefly trở thành một phần không thể thiếu trong Photoshop và Illustrator, cho phép các nhà thiết kế đồ họa mở rộng, xóa bỏ hay tạo mới các yếu tố hình ảnh chỉ bằng vài câu lệnh. GitHub Copilot hỗ trợ lập trình viên viết code nhanh hơn và chính xác hơn ngay trong môi trường phát triển (IDE). Xu hướng tích hợp sâu này mang lại lợi ích kép: người dùng có thể tận dụng sức mạnh của AI mà không cần thay đổi quy trình làm việc quen thuộc, đồng thời AI cũng học hỏi được ngữ cảnh và nhu cầu cụ thể của người dùng để đưa ra những gợi ý và hỗ trợ phù hợp hơn. AI đang dần trở thành một lớp thông minh ẩn bên dưới, nâng cao năng suất và khơi nguồn sáng tạo một cách tự nhiên.'),
+(278, 8, 130, 'image', 'images/generative-ai-integration.jpg'),
 (279, 8, 140, 'heading', '5. Tập trung vào An toàn, Đạo đức và Trách nhiệm: Xây dựng nền tảng bền vững'),
-(280, 8, 150, 'paragraph', 'Sức mạnh to lớn của AI tạo sinh đi kèm với những lo ngại không nhỏ về các tác động tiêu cực tiềm ẩn. Do đó, việc đảm bảo an toàn, đạo đức và trách nhiệm trong quá trình phát triển và triển khai AI đang trở thành một xu hướng ngày càng được chú trọng. Các nhà nghiên cứu và công ty công nghệ lớn đang nỗ lực xây dựng các cơ chế để giảm thiểu hiện tượng "ảo giác" (hallucination) – tức là AI bịa đặt thông tin sai lệch một cách tự tin. Họ cũng đang phát triển các bộ lọc và "hàng rào bảo vệ" (guardrails) để ngăn chặn việc lạm dụng AI cho các mục đích xấu như tạo tin giả (deepfake), lừa đảo, hay phát tán ngôn từ thù hận. Các vấn đề về bản quyền liên quan đến dữ liệu huấn luyện và nội dung do AI tạo ra cũng đang được tranh luận sôi nổi. Bên cạnh đó, tính minh bạch (transparency) và khả năng giải thích (explainability) của các mô hình AI cũng là yếu tố quan trọng để xây dựng lòng tin nơi người dùng. Việc xây dựng các khung pháp lý, các tiêu chuẩn kỹ thuật và các quy tắc đạo đức cho AI có trách nhiệm (Responsible AI) là một xu hướng tất yếu, đảm bảo rằng công nghệ này có thể phát triển một cách bền vững và mang lại lợi ích cho toàn xã hội.'),
-(281, 8, 160, 'image', 'images/generative-ai-ethics.jpg'), /* Thêm ảnh minh họa nếu có */
+(280, 8, 150, 'paragraph', 'Sức mạnh to lớn của AI tạo sinh đi kèm với những lo ngại không nhỏ về các tác động tiêu cực tiềm ẩn. Do đó, việc đảm bảo an toàn, đạo đức và trách nhiệm trong quá trình phát triển và triển khai AI đang trở thành một xu hướng ngày càng được chú trọng. Các nhà nghiên cứu và công ty công nghệ lớn đang nỗ lực xây dựng các cơ chế để giảm thiểu hiện tượng \"ảo giác\" (hallucination) – tức là AI bịa đặt thông tin sai lệch một cách tự tin. Họ cũng đang phát triển các bộ lọc và \"hàng rào bảo vệ\" (guardrails) để ngăn chặn việc lạm dụng AI cho các mục đích xấu như tạo tin giả (deepfake), lừa đảo, hay phát tán ngôn từ thù hận. Các vấn đề về bản quyền liên quan đến dữ liệu huấn luyện và nội dung do AI tạo ra cũng đang được tranh luận sôi nổi. Bên cạnh đó, tính minh bạch (transparency) và khả năng giải thích (explainability) của các mô hình AI cũng là yếu tố quan trọng để xây dựng lòng tin nơi người dùng. Việc xây dựng các khung pháp lý, các tiêu chuẩn kỹ thuật và các quy tắc đạo đức cho AI có trách nhiệm (Responsible AI) là một xu hướng tất yếu, đảm bảo rằng công nghệ này có thể phát triển một cách bền vững và mang lại lợi ích cho toàn xã hội.'),
+(281, 8, 160, 'image', 'images/generative-ai-ethics.jpg'),
 (282, 8, 170, 'heading', 'Kết luận'),
 (283, 8, 180, 'paragraph', 'Trí tuệ nhân tạo tạo sinh đang ở trong một giai đoạn phát triển cực kỳ sôi động và đầy biến đổi. Những xu hướng như mô hình đa phương thức, cá nhân hóa sâu sắc, khả năng tự chủ của các agent, tích hợp liền mạch vào quy trình làm việc, và sự tập trung vào đạo đức, an toàn đang cùng nhau định hình một tương lai nơi AI không chỉ là một công cụ hỗ trợ thụ động. Nó hứa hẹn sẽ trở thành một đối tác sáng tạo thực thụ, một trợ lý thông minh có khả năng hành động, và một phần không thể thiếu trong cấu trúc xã hội và kinh tế. Việc hiểu rõ và nắm bắt những xu hướng này là chìa khóa để chúng ta có thể khai thác tối đa tiềm năng của AI tạo sinh, đồng thời giảm thiểu những rủi ro đi kèm, hướng tới một tương lai hợp tác hiệu quả giữa con người và máy móc.'),
-
--- NỘI DUNG BÀI VIẾT 9 (ỨNG DỤNG QUẢN LÝ CÔNG VIỆC - ID MỚI)
 (284, 9, 10, 'paragraph', 'Trong môi trường làm việc hiện đại, việc theo dõi và quản lý công việc một cách hiệu quả là chìa khóa để tăng năng suất cho cả cá nhân và đội nhóm. May mắn là có rất nhiều ứng dụng mạnh mẽ được thiết kế để giúp chúng ta sắp xếp mọi thứ ngăn nắp. Dưới đây là danh sách 5 ứng dụng quản lý công việc được đánh giá cao và sử dụng rộng rãi nhất hiện nay.'),
 (285, 9, 20, 'heading', '1. Trello: Trực quan và Linh hoạt'),
-(286, 9, 30, 'paragraph', 'Trello nổi tiếng với giao diện kéo-thả trực quan dựa trên phương pháp Kanban. Bạn có thể tạo các "bảng" (boards) cho mỗi dự án, trong đó có các "danh sách" (lists) đại diện cho các giai đoạn công việc (ví dụ: Cần làm, Đang làm, Đã xong). Mỗi công việc là một "thẻ" (card) mà bạn có thể di chuyển qua lại giữa các danh sách. Trello cực kỳ phù-hợp cho các đội nhóm nhỏ, các dự án cá nhân và những ai yêu thích sự đơn giản, trực quan.'),
+(286, 9, 30, 'paragraph', 'Trello nổi tiếng với giao diện kéo-thả trực quan dựa trên phương pháp Kanban. Bạn có thể tạo các \"bảng\" (boards) cho mỗi dự án, trong đó có các \"danh sách\" (lists) đại diện cho các giai đoạn công việc (ví dụ: Cần làm, Đang làm, Đã xong). Mỗi công việc là một \"thẻ\" (card) mà bạn có thể di chuyển qua lại giữa các danh sách. Trello cực kỳ phù-hợp cho các đội nhóm nhỏ, các dự án cá nhân và những ai yêu thích sự đơn giản, trực quan.'),
 (287, 9, 40, 'image', 'images/app-trello-interface.jpg'),
 (288, 9, 50, 'heading', '2. Asana: Quản lý dự án toàn diện'),
 (289, 9, 60, 'paragraph', 'Asana là một công cụ mạnh mẽ hơn, được thiết kế cho việc quản lý dự án phức tạp với nhiều thành viên và các công việc phụ thuộc lẫn nhau. Ngoài chế độ xem bảng Kanban, Asana còn cung cấp các chế độ xem dạng danh sách, lịch và biểu đồ Gantt (timeline), giúp người quản lý có cái nhìn tổng quan về tiến độ dự án. Đây là lựa chọn lý tưởng cho các doanh nghiệp cần một giải pháp quản lý công việc bài bản và có cấu trúc.'),
@@ -338,10 +298,10 @@ INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `
 (292, 9, 90, 'paragraph', 'Điểm mạnh nhất của Monday.com là khả năng tùy biến cực kỳ cao và hệ thống tự động hóa mạnh mẽ. Bạn có thể xây dựng quy trình làm việc (workflow) cho gần như mọi loại hình phòng ban, từ marketing, kinh doanh đến nhân sự. Monday.com cho phép bạn tự động hóa các tác vụ lặp đi lặp lại, ví dụ như tự động gán việc cho người mới khi một công việc được hoàn thành, giúp tiết kiệm thời gian và giảm thiểu sai sót.'),
 (293, 9, 100, 'image', 'images/app-monday-automation.jpg'),
 (294, 9, 110, 'heading', '4. Todoist: Tối giản cho cá nhân'),
-(295, 9, 120, 'paragraph', 'Nếu bạn đang tìm kiếm một ứng dụng quản lý công việc cá nhân đơn giản nhưng hiệu quả, Todoist là lựa chọn hàng đầu. Giao diện của Todoist sạch sẽ, tập trung vào việc tạo danh sách việc cần làm (to-do list) một cách nhanh chóng. Điểm đặc biệt của nó là khả năng nhận dạng ngôn ngữ tự nhiên, bạn chỉ cần gõ "Nộp báo cáo vào thứ Sáu tuần sau" và ứng dụng sẽ tự động tạo một nhiệm vụ với ngày hết hạn chính xác. Todoist hoàn hảo cho việc quản lý các mục tiêu và thói quen hàng ngày.'),
+(295, 9, 120, 'paragraph', 'Nếu bạn đang tìm kiếm một ứng dụng quản lý công việc cá nhân đơn giản nhưng hiệu quả, Todoist là lựa chọn hàng đầu. Giao diện của Todoist sạch sẽ, tập trung vào việc tạo danh sách việc cần làm (to-do list) một cách nhanh chóng. Điểm đặc biệt của nó là khả năng nhận dạng ngôn ngữ tự nhiên, bạn chỉ cần gõ \"Nộp báo cáo vào thứ Sáu tuần sau\" và ứng dụng sẽ tự động tạo một nhiệm vụ với ngày hết hạn chính xác. Todoist hoàn hảo cho việc quản lý các mục tiêu và thói quen hàng ngày.'),
 (296, 9, 130, 'image', 'images/app-todoist-simple.jpg'),
 (297, 9, 140, 'heading', '5. Notion: Không gian làm việc tất-cả-trong-một'),
-(298, 9, 150, 'paragraph', 'Notion không chỉ là một ứng dụng quản lý công việc, nó là một "không gian làm việc" (workspace) nơi bạn có thể kết hợp ghi chú, cơ sở dữ liệu, bảng Kanban, lịch và nhiều hơn nữa. Sự linh hoạt của Notion là vô tận, cho phép bạn xây dựng một hệ thống quản lý kiến thức và công việc của riêng mình từ con số không. Mặc dù cần một chút thời gian để làm quen, nhưng Notion là công cụ tối thượng cho những ai muốn tích hợp mọi thứ vào một nơi duy nhất.'),
+(298, 9, 150, 'paragraph', 'Notion không chỉ là một ứng dụng quản lý công việc, nó là một \"không gian làm việc\" (workspace) nơi bạn có thể kết hợp ghi chú, cơ sở dữ liệu, bảng Kanban, lịch và nhiều hơn nữa. Sự linh hoạt của Notion là vô tận, cho phép bạn xây dựng một hệ thống quản lý kiến thức và công việc của riêng mình từ con số không. Mặc dù cần một chút thời gian để làm quen, nhưng Notion là công cụ tối thượng cho những ai muốn tích hợp mọi thứ vào một nơi duy nhất.'),
 (299, 9, 160, 'image', 'images/app-notion-workspace.jpg'),
 (300, 9, 170, 'heading', 'Kết luận'),
 (301, 9, 180, 'paragraph', 'Mỗi ứng dụng đều có điểm mạnh riêng và phù hợp với những nhu cầu khác nhau. Trello và Todoist tuyệt vời cho sự đơn giản và cá nhân, trong khi Asana và Monday.com mạnh mẽ hơn cho quản lý đội nhóm. Notion là lựa chọn linh hoạt nhất cho những ai muốn xây dựng một hệ thống riêng. Hãy thử nghiệm và chọn ra công cụ phù hợp nhất để giúp bạn làm việc hiệu quả hơn.');
@@ -369,30 +329,6 @@ INSERT INTO `linhvuc` (`id`, `ten_linhvuc`, `mo_ta`, `ngay_tao`) VALUES
 (3, 'Máy tính', 'Laptop, PC, phần cứng và phần mềm', '2025-09-24 12:36:50'),
 (4, 'Ứng dụng', 'App di động và phần mềm hữu ích', '2025-09-24 12:36:50');
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `noidung`
---
-
-CREATE TABLE `noidung` (
-  `id` int(11) NOT NULL,
-  `id_baiviet` int(11) DEFAULT NULL,
-  `hinh_anh` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `noi_dung` text COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `noidung`
---
-
-INSERT INTO `noidung` (`id`, `id_baiviet`, `hinh_anh`, `noi_dung`) VALUES
-(1, 1, NULL, 'Chi tiết iPhone 17 Pro Max: Chip A19, camera nâng cấp, hỗ trợ sạc nhanh.'),
-(2, 2, NULL, 'Alienware 2025: CPU Intel Gen mới, GPU RTX 5090, màn hình 240Hz.'),
-(3, 3, NULL, 'Meta VR 2025: Kính thực tế ảo với cảm biến 3D, hỗ trợ nhiều ứng dụng.'),
-(4, 4, NULL, 'Top 10 ứng dụng AI miễn phí giúp học tập, lập trình và nghiên cứu hiệu quả.'),
-(5, 5, NULL, 'Danh sách game hot tháng 9 cùng đánh giá chi tiết.');
-
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -403,13 +339,6 @@ INSERT INTO `noidung` (`id`, `id_baiviet`, `hinh_anh`, `noi_dung`) VALUES
 ALTER TABLE `baiviet`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_linhvuc` (`id_linhvuc`);
-
---
--- Chỉ mục cho bảng `baiviet_hot`
---
-ALTER TABLE `baiviet_hot`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_baiviet` (`id_baiviet`);
 
 --
 -- Chỉ mục cho bảng `binhluan`
@@ -432,13 +361,6 @@ ALTER TABLE `linhvuc`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `noidung`
---
-ALTER TABLE `noidung`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_baiviet` (`id_baiviet`);
-
---
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -447,12 +369,6 @@ ALTER TABLE `noidung`
 --
 ALTER TABLE `baiviet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
---
--- AUTO_INCREMENT cho bảng `baiviet_hot`
---
-ALTER TABLE `baiviet_hot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `binhluan`
@@ -464,19 +380,13 @@ ALTER TABLE `binhluan`
 -- AUTO_INCREMENT cho bảng `content_blocks`
 --
 ALTER TABLE `content_blocks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
 
 --
 -- AUTO_INCREMENT cho bảng `linhvuc`
 --
 ALTER TABLE `linhvuc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `noidung`
---
-ALTER TABLE `noidung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -489,12 +399,6 @@ ALTER TABLE `baiviet`
   ADD CONSTRAINT `baiviet_ibfk_1` FOREIGN KEY (`id_linhvuc`) REFERENCES `linhvuc` (`id`) ON DELETE SET NULL;
 
 --
--- Các ràng buộc cho bảng `baiviet_hot`
---
-ALTER TABLE `baiviet_hot`
-  ADD CONSTRAINT `baiviet_hot_ibfk_1` FOREIGN KEY (`id_baiviet`) REFERENCES `baiviet` (`id`) ON DELETE CASCADE;
-
---
 -- Các ràng buộc cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
@@ -505,12 +409,6 @@ ALTER TABLE `binhluan`
 --
 ALTER TABLE `content_blocks`
   ADD CONSTRAINT `content_blocks_ibfk_1` FOREIGN KEY (`id_baiviet`) REFERENCES `baiviet` (`id`) ON DELETE CASCADE;
-
---
--- Các ràng buộc cho bảng `noidung`
---
-ALTER TABLE `noidung`
-  ADD CONSTRAINT `noidung_ibfk_1` FOREIGN KEY (`id_baiviet`) REFERENCES `baiviet` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
