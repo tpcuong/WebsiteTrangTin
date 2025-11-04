@@ -72,5 +72,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+    // Xử lý form liên hệ
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            const name = contactForm.querySelector('input[name="name"]');
+            const email = contactForm.querySelector('input[name="email"]');
+            const message = contactForm.querySelector('textarea[name="message"]');
+
+            if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
+                event.preventDefault(); // Ngăn gửi form
+                alert('Vui lòng điền đầy đủ Họ tên, Email và Nội dung liên hệ!');
+            }
+        });
+    }
 
 });
+

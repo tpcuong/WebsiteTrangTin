@@ -24,7 +24,7 @@ $sidebar_posts = fetchAll($conn, "
     FROM baiviet b
     LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
     ORDER BY b.ngay_dang DESC
-    LIMIT 5
+    LIMIT 10
 ");
 
 $categories = fetchAll($conn, "SELECT id, ten_linhvuc FROM linhvuc ORDER BY id ASC LIMIT 5");
@@ -39,7 +39,12 @@ $categories = fetchAll($conn, "SELECT id, ten_linhvuc FROM linhvuc ORDER BY id A
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body <?php 
+    if (isset($_SESSION['flash_message'])) {
+        echo 'data-flash-message="' . htmlspecialchars($_SESSION['flash_message'], ENT_QUOTES) . '"';
+        unset($_SESSION['flash_message']); 
+    } 
+?>>
 
 <header class="header">
   <div class="container">
@@ -52,15 +57,16 @@ $categories = fetchAll($conn, "SELECT id, ten_linhvuc FROM linhvuc ORDER BY id A
     </div>
 
     <nav class="main-menu">
-      <ul>
-        <li><a href="index.php" class="active">Trang chủ</a></li>
-        <?php foreach ($menu_items as $item): ?>
-            <li><a href="category.php?id=<?= $item['id'] ?>"><?= htmlspecialchars($item['ten_linhvuc']) ?></a></li>
-        <?php endforeach; ?>
-        <li><a href="#">Đánh giá</a></li>
-        <li><a href="#">Thủ thuật</a></li>
-      </ul>
-    </nav>
+  <ul>
+    <li><a href="index.php" class="active">Trang chủ</a></li>
+    <?php foreach ($menu_items as $item): ?>
+        <li><a href="#linhvuc-<?= $item['id'] ?>"><?= htmlspecialchars($item['ten_linhvuc']) ?></a></li>
+    <?php endforeach; ?>
+     <li class="nav-item">
+        <a href="#contact" class="nav-link">Liên Hệ</a>
+      </li>
+  </ul>
+</nav>
   </div>
 </header>
 
@@ -91,24 +97,25 @@ $categories = fetchAll($conn, "SELECT id, ten_linhvuc FROM linhvuc ORDER BY id A
         </div>
   
         <?php foreach ($categories as $cat): ?>
-          <h2 class="section-title" style="margin-top:30px">Tin <?= htmlspecialchars($cat['ten_linhvuc']) ?></h2>
-          <?php
-            $posts = fetchAll($conn, "
-                SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc
-                FROM baiviet b
-                LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
-                WHERE b.id_linhvuc = ? AND b.id NOT IN ($exclude_str)
-                ORDER BY b.ngay_dang DESC LIMIT 4
-            ", 'i', [$cat['id']]);
-          ?>
-          <div class="news-grid">
-            <?php if ($posts): ?>
-                <?php foreach ($posts as $p) echo renderNewsCard($p); ?>
-            <?php else: ?>
-                <p style="text-align:center;width:100%">Không có tin tức nào trong lĩnh vực này.</p>
-            <?php endif; ?>
-          </div>
-        <?php endforeach; ?>
+          <section id="linhvuc-<?= $cat['id'] ?>">
+            <h2 class="section-title" style="margin-top:30px">Tin <?= htmlspecialchars($cat['ten_linhvuc']) ?></h2>
+            <?php
+              $posts = fetchAll($conn, "
+                  SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc
+                  FROM baiviet b
+                  LEFT JOIN linhvuc l ON b.id_linhvuc = l.id
+                  WHERE b.id_linhvuc = ? AND b.id NOT IN ($exclude_str)
+                  ORDER BY b.ngay_dang DESC LIMIT 4
+              ", 'i', [$cat['id']]);
+            ?>
+            <div class="news-grid">
+              <?php if ($posts): ?>
+                  <?php foreach ($posts as $p) echo renderNewsCard($p); ?>
+              <?php else: ?>
+                  <p style="text-align:center;width:100%">Không có tin tức nào trong lĩnh vực này.</p>
+              <?php endif; ?>
+            </div>
+          </section> <?php endforeach; ?>
     </section>
 
     <aside class="right-sidebar">

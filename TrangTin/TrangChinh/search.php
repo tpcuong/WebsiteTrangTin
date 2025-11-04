@@ -1,12 +1,6 @@
 <?php
 include 'config.php';
 
-// --- SAO CHÉP CÁC HÀM TIỆN ÍCH TỪ INDEX.PHP ---
-// (Bạn nên đưa các hàm này vào một tệp functions.php riêng và include vào)
-
-/**
- * Hàm render card tin tức
- */
 function renderNewsCard(array $post, string $class = ''): string {
     $id = (int)$post['id'];
     $title = htmlspecialchars($post['tieu_de']);
@@ -40,15 +34,11 @@ function fetchAll(mysqli $conn, string $sql, string $types = '', array $params =
     return $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
 }
 
-// --- LẤY DỮ LIỆU MENU (GIỐNG INDEX.PHP) ---
 $menu_items = fetchAll($conn, "SELECT id, ten_linhvuc FROM linhvuc ORDER BY id ASC LIMIT 5");
 
 
-// --- LẤY DỮ LIỆU MENU (GIỐNG INDEX.PHP) ---
 $menu_items = fetchAll($conn, "SELECT id, ten_linhvuc FROM linhvuc ORDER BY id ASC LIMIT 5");
 
-// ======== THÊM ĐOẠN NÀY VÀO ========
-// --- (THÊM MỚI) LẤY DỮ LIỆU SIDEBAR (GIỐNG INDEX.PHP) ---
 $sidebar_posts = fetchAll($conn, "
     SELECT b.id, b.tieu_de, b.hinh_anh, l.ten_linhvuc
     FROM baiviet b
@@ -64,11 +54,7 @@ $query = '';
 if (isset($_GET['q']) && !empty(trim($_GET['q']))) {
     $query = trim($_GET['q']);
 
-    // Chuẩn bị từ khóa cho truy vấn LIKE (thêm dấu % ở hai đầu)
     $search_term = "%{$query}%";
-
-    // Truy vấn tìm kiếm (an toàn với prepared statements)
-    // Tìm kiếm ở cả Tiêu đề và Mô tả ngắn
     $sql = "
         SELECT b.id, b.tieu_de, b.mo_ta_ngan, b.hinh_anh, l.ten_linhvuc
         FROM baiviet b
