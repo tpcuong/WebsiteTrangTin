@@ -51,11 +51,7 @@
     text-align: justify;
 }
 
-<<<<<<< HEAD
-/* Sidebar */
-=======
 /* Sidebar (Giữ nguyên) */
->>>>>>> 97656b2 (Fix Code and update admin)
 .right-sidebar {
     width: 280px;
     background: #fff;
@@ -120,10 +116,6 @@
 .post-content .content-img {
     width: 100%;
     height: 450px;
-<<<<<<< HEAD
-    /* Chiều cao gốc là 450px */
-=======
->>>>>>> 97656b2 (Fix Code and update admin)
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -251,8 +243,6 @@
         flex-direction: column;
         gap: 0;
     }
-<<<<<<< HEAD
-=======
 }
 
 /* ============================================== */
@@ -298,5 +288,4 @@
     color: #333;
     margin: 0;
     text-align: justify; /* Căn đều 2 bên cho đẹp */
->>>>>>> 97656b2 (Fix Code and update admin)
 }

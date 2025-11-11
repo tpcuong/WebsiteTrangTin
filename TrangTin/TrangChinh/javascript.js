@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-$(document).ready(function () {
-=======
 $(document).ready(function () {
 
     // ================================================
@@ -9,7 +5,6 @@ $(document).ready(function () {
     // ================================================
 
     // --- 1.1. Ẩn/hiện mục "Xem nhanh" ---
->>>>>>> 97656b2 (Fix Code and update admin)
     var quickNav = $('.quick-nav h3');
     if (quickNav.length > 0) {
         quickNav.on('click', function () {
@@ -17,10 +12,7 @@ $(document).ready(function () {
         });
     }
 
-<<<<<<< HEAD
-=======
     // --- 1.2. Cuộn mượt khi nhấn "Xem nhanh" ---
->>>>>>> 97656b2 (Fix Code and update admin)
     var quickNavLinks = $('.quick-nav ul li a');
     if (quickNavLinks.length > 0) {
         quickNavLinks.on('click', function (event) {
@@ -29,14 +21,6 @@ $(document).ready(function () {
             var targetElement = $(targetId);
             if (targetElement.length) {
                 var headerHeight = $('.header').outerHeight() || 0;
-<<<<<<< HEAD
-                $('html, body').animate({
-                    scrollTop: targetElement.offset().top - headerHeight - 15
-                }, 800);
-            }
-        });
-    }
-=======
                 var menuHeight = $('.main-menu').outerHeight() || 0;
                 $('html, body').animate({
                     scrollTop: targetElement.offset().top - headerHeight - menuHeight - 20
@@ -46,17 +30,13 @@ $(document).ready(function () {
     }
 
     // --- 1.3. Hiển thị thông báo (Flash Message) ---
->>>>>>> 97656b2 (Fix Code and update admin)
     var flashMessage = $('body').data('flash-message');
     if (flashMessage) {
         alert(flashMessage);
         $('body').removeAttr('data-flash-message');
     }
-<<<<<<< HEAD
-=======
 
     // --- 1.4. Vẽ biểu đồ (Chart.js) ---
->>>>>>> 97656b2 (Fix Code and update admin)
     var charts = $('.js-chart');
     if (charts.length > 0 && typeof Chart !== 'undefined') {
         charts.each(function () {
@@ -84,36 +64,6 @@ $(document).ready(function () {
         });
     }
 
-<<<<<<< HEAD
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const allSearchForms = document.querySelectorAll('form.search-box');
-
-    allSearchForms.forEach(form => {
-        form.addEventListener('submit', function (event) {
-
-            const input = form.querySelector('input[name="q"]');
-
-            if (input.value.trim() === '') {
-                event.preventDefault();
-                alert('Vui lòng nhập từ khóa tìm kiếm!');
-
-                input.focus();
-            }
-        });
-    });
-    // Xử lý form liên hệ
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (event) {
-            const name = contactForm.querySelector('input[name="name"]');
-            const email = contactForm.querySelector('input[name="email"]');
-            const message = contactForm.querySelector('textarea[name="message"]');
-
-            if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
-=======
     // ================================================
     // === 2. LOGIC VALIDATION (TÌM KIẾM & LIÊN HỆ)
     // ================================================
@@ -137,17 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const message = contactForm.find('textarea[name="message"]');
 
             if (name.val().trim() === '' || email.val().trim() === '' || message.val().trim() === '') {
->>>>>>> 97656b2 (Fix Code and update admin)
                 event.preventDefault(); // Ngăn gửi form
                 alert('Vui lòng điền đầy đủ Họ tên, Email và Nội dung liên hệ!');
             }
         });
     }
 
-<<<<<<< HEAD
-});
-
-=======
     // ================================================
     // === 3. LOGIC LOGIN MODAL (AJAX)
     // ================================================
@@ -284,4 +229,3 @@ $(document).ready(function() {
     });
 
 });
->>>>>>> 97656b2 (Fix Code and update admin)

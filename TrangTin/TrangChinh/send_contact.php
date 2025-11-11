@@ -12,22 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 3. Xác thực dữ liệu cơ bản
     if (!empty($name) && !empty($email) && !empty($message) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-<<<<<<< HEAD
-        
-        /* * LỰA CHỌN A: GỬI EMAIL (Khó hơn, cần cấu hình server)
-         * --------------------------------------------------
-         * $to = "info@technews.vn"; // Email của bạn
-         * $subject = "Liên hệ mới từ $name";
-         * $body = "Bạn có tin nhắn mới:\n\nTừ: $name ($email)\nNội dung:\n$message";
-         * $headers = "From: webmaster@example.com"; // Cần 1 email trên server
-         * * if (mail($to, $subject, $body, $headers)) {
-         * $_SESSION['flash_message'] = "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm.";
-         * } else {
-         * $_SESSION['flash_message'] = "Lỗi: Không thể gửi tin nhắn. Vui lòng thử lại sau.";
-         * }
-         */
-=======
->>>>>>> 97656b2 (Fix Code and update admin)
 
         /* * LỰA CHỌN B: LƯU VÀO DATABASE (Dễ hơn, được khuyến nghị)
          * --------------------------------------------------
