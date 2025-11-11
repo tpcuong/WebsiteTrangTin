@@ -51,7 +51,11 @@
     text-align: justify;
 }
 
+<<<<<<< HEAD
 /* Sidebar */
+=======
+/* Sidebar (Giữ nguyên) */
+>>>>>>> 97656b2 (Fix Code and update admin)
 .right-sidebar {
     width: 280px;
     background: #fff;
@@ -116,7 +120,10 @@
 .post-content .content-img {
     width: 100%;
     height: 450px;
+<<<<<<< HEAD
     /* Chiều cao gốc là 450px */
+=======
+>>>>>>> 97656b2 (Fix Code and update admin)
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -244,4 +251,52 @@
         flex-direction: column;
         gap: 0;
     }
+<<<<<<< HEAD
+=======
+}
+
+/* ============================================== */
+/* == 📍 CSS CHO KHUNG BÌNH LUẬN (ĐÃ THÊM) == */
+/* ============================================== */
+.comment-section {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 40px;
+}
+
+.comment-item {
+    background: #f8f9fa; /* Màu nền hơi xám */
+    border: 1px solid #e9ecef; /* Viền rất nhạt */
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-header strong {
+    font-size: 17px;
+    color: #0056b3; /* Màu xanh cho tên */
+}
+
+.comment-header .comment-date {
+    font-size: 13px;
+    color: #6c757d; /* Màu xám cho ngày tháng */
+    font-style: italic;
+}
+
+.comment-body p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    text-align: justify; /* Căn đều 2 bên cho đẹp */
+>>>>>>> 97656b2 (Fix Code and update admin)
 }

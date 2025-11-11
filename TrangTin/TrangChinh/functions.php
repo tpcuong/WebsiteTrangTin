@@ -1,8 +1,22 @@
 <?php
+<<<<<<< HEAD
 session_start(); 
 include 'config.php'; 
 
 function renderNewsCard(array $post, string $class = ''): string {
+=======
+// SỬA: Chỉ khởi động session NẾU CHƯA TỒN TẠI
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include 'config.php'; 
+
+// --- (Toàn bộ các hàm renderNewsCard, fetchAll, getMenuItems giữ nguyên) ---
+
+function renderNewsCard(array $post, string $class = ''): string {
+    // Hàm này được dùng bởi trang search.php và category.php
+    // (Trang index.php kiểu GenK không dùng hàm này)
+>>>>>>> 97656b2 (Fix Code and update admin)
     $id = (int)$post['id'];
     $title = htmlspecialchars($post['tieu_de']);
     $excerpt = htmlspecialchars($post['mo_ta_ngan']);
@@ -23,6 +37,10 @@ function renderNewsCard(array $post, string $class = ''): string {
     </article>
 HTML;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 97656b2 (Fix Code and update admin)
 function fetchAll(mysqli $conn, string $sql, string $types = '', array $params = []): array {
     $stmt = $conn->prepare($sql);
     if ($stmt === false) {
@@ -44,5 +62,8 @@ function fetchAll(mysqli $conn, string $sql, string $types = '', array $params =
 function getMenuItems(mysqli $conn): array {
     return fetchAll($conn, "SELECT id, ten_linhvuc FROM linhvuc ORDER BY id ASC LIMIT 5");
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97656b2 (Fix Code and update admin)
 ?>

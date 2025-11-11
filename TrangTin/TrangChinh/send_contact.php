@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 3. Xác thực dữ liệu cơ bản
     if (!empty($name) && !empty($email) && !empty($message) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+<<<<<<< HEAD
         
         /* * LỰA CHỌN A: GỬI EMAIL (Khó hơn, cần cấu hình server)
          * --------------------------------------------------
@@ -25,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          * $_SESSION['flash_message'] = "Lỗi: Không thể gửi tin nhắn. Vui lòng thử lại sau.";
          * }
          */
+=======
+>>>>>>> 97656b2 (Fix Code and update admin)
 
         /* * LỰA CHỌN B: LƯU VÀO DATABASE (Dễ hơn, được khuyến nghị)
          * --------------------------------------------------

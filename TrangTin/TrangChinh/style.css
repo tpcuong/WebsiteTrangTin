@@ -1,5 +1,52 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+=======
+/*
+================================
+== 1. CÀI ĐẶT BIẾN (VARIABLES) & RESET
+================================
+*/
+:root {
+    /* Fonts */
+    --font-family: 'Roboto', 'Segoe UI', Tahoma, Verdana, sans-serif;
+    
+    /* Colors (Kiểu GenK) */
+    --color-primary: #ad1a11; /* Màu đỏ GenK */
+    --color-primary-dark: #8c150e;
+    
+    --color-text-dark: #333; /* Chữ đậm hơn */
+    --color-text-light: #555;
+    --color-text-meta: #777;
+    --color-text-white: #fff;
+    
+    --color-bg-light: #f4f4f4; /* Nền xám nhạt */
+    --color-bg-white: #fff;
+    --color-border: #e5e5e5;
+    
+    --color-contact-bg: linear-gradient(to right, #f8f9fa, #e9ecef);
+    --color-contact-highlight: #0073e6;
+    --color-footer-bg: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    --color-footer-text: #b0b0b0;
+
+    /* Layout & Sizing */
+    --header-height-calc: 85px; 
+    --menu-height-calc: 55px; 
+    --layout-width: 1180px; 
+    --gap-normal: 20px;
+    
+    /* Effects */
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-card-hover: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --shadow-header: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --radius-sm: 4px; 
+    --radius-lg: 8px;
+    --radius-pill: 50px;
+    --transition-speed: 0.2s ease-in-out;
+}
+
+/* --- Reset --- */
+>>>>>>> 97656b2 (Fix Code and update admin)
 * {
     margin: 0;
     padding: 0;
@@ -7,15 +54,25 @@
 }
 
 body {
+<<<<<<< HEAD
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
     color: #1a1a1a;
     line-height: 1.7;
     overflow-x: hidden;
+=======
+    font-family: var(--font-family);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    line-height: 1.6; 
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+>>>>>>> 97656b2 (Fix Code and update admin)
 }
 
 a {
     text-decoration: none;
+<<<<<<< HEAD
     color: #1a1a1a;
     transition: all 0.3s ease;
 }
@@ -26,6 +83,14 @@ a:hover {
 
 .container {
     width: 1200px;
+=======
+    color: var(--color-text-dark);
+    transition: all var(--transition-speed);
+}
+
+.container {
+    width: var(--layout-width);
+>>>>>>> 97656b2 (Fix Code and update admin)
     max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
@@ -35,6 +100,7 @@ html {
     scroll-behavior: smooth;
 }
 
+<<<<<<< HEAD
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -57,6 +123,18 @@ html {
     background-color: #fff;
     padding: 15px 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+=======
+/*
+================================
+== 2. HEADER & MENU (CẬP NHẬT KIỂU GENK - NỀN TỐI)
+================================
+*/
+.header {
+    background-color: var(--color-primary); /* Nền header tối */
+    /* 📍 SỬA LỖI: Xóa padding-bottom ở đây */
+    padding: 15px 0 0 0; 
+    box-shadow: var(--shadow-header);
+>>>>>>> 97656b2 (Fix Code and update admin)
     position: sticky;
     top: 0;
     z-index: 1100;
@@ -66,6 +144,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -79,10 +158,46 @@ html {
     letter-spacing: -0.5px;
 }
 
+=======
+    max-width: var(--layout-width);
+    margin: 0 auto;
+    /* 📍 SỬA LỖI: Thêm padding-bottom 15px vào đây */
+    padding: 0 20px 15px 20px;
+}
+
+/* --- Logo Kiểu GenK --- */
+.logo a {
+    text-decoration: none; 
+}
+.logo h1 {
+    color: var(--color-text-white);
+    font-size: clamp(2.2rem, 5vw, 2.8rem); 
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    font-family: Arial Black, "Arial Bold", sans-serif; 
+    text-transform: uppercase; 
+}
+.logo .logo-k {
+    color: var(--color-primary); 
+    margin-left: -5px; 
+}
+.logo p {
+    font-size: 0.8rem; 
+    color: #bbb; 
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase; 
+}
+
+/* --- Thanh tìm kiếm (Nền tối) --- */
+>>>>>>> 97656b2 (Fix Code and update admin)
 .search-box {
     display: flex;
     align-items: center;
     gap: 10px;
+<<<<<<< HEAD
     position: relative;
 }
 
@@ -96,10 +211,25 @@ html {
     background-color: #fff;
     transition: all 0.3s ease;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23666" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+=======
+}
+.search-box input[type="text"] {
+    padding: 12px 16px 12px 45px;
+    width: 300px;
+    border: 1px solid #fff; /* Border tối */
+    border-radius: var(--radius-pill);
+    outline: none;
+    font-size: 14px;
+    background-color: #fff; /* Nền ô input tối */
+    color: var(--color-text-white); /* Chữ trắng */
+    transition: all var(--transition-speed);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23999" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+>>>>>>> 97656b2 (Fix Code and update admin)
     background-repeat: no-repeat;
     background-position: 16px center;
     background-size: 16px;
 }
+<<<<<<< HEAD
 
 .search-box input[type="text"]:focus {
     border-color: #e74c3c;
@@ -232,11 +362,161 @@ html {
     gap: 25px;
     align-items: start;
     width: 1200px;
+=======
+.search-box input[type="text"]:focus {
+    border-color: var(--color-primary);
+    background-color: #444;
+    width: 250px;
+}
+.search-box button {
+    padding: 12px 20px;
+    background: #fff;
+    color: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+}
+.search-box button:hover {
+    color: #fff;
+    background: var(--color-primary-dark);
+}
+
+.search-box .text-btn{
+    font-weight: bold;
+}
+/* --- Nút Đăng nhập / Đăng xuất (Nền tối) --- */
+.admin-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px; 
+    flex-shrink: 0; 
+}
+.admin-link .welcome-user {
+    font-size: 0.9rem;
+    color: #ccc; /* Chữ chào màu xám nhạt */
+    font-weight: 500;
+    white-space: nowrap;
+}
+.login-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #fff; /* Nền nút tối */
+    color: var(--color-primary); /* Chữ nút sáng */
+    border: 1px solid #555; /* Border tối */
+    border-radius: var(--radius-pill);
+    font-weight: 500;
+    font-size: 14px;
+    transition: all var(--transition-speed);
+    white-space: nowrap;
+    cursor: pointer;
+}
+.login-button i {
+    margin-right: 6px;
+    color: var(--color-primary);
+}
+.login-button:hover {
+    background-color: #444;
+    border-color: #777;
+    color: #fff;
+}
+.login-button.admin-dash-button {
+    background-color: #f0f5fa;
+    color: #0056b3;
+    border-color: #b3d4fc;
+}
+.login-button.admin-dash-button:hover {
+    background-color: #e6effa;
+}
+.login-button.logout-button {
+    background-color: #fef2f2;
+    color: var(--color-primary-dark);
+    border-color: #fbcaca;
+}
+.login-button.logout-button:hover {
+    background-color: #fde8e8;
+}
+
+
+/* --- Menu chính (Có thanh trượt) --- */
+.main-menu {
+    background: var(--color-primary);
+    height: var(--menu-height-calc);
+    overflow-x: auto; 
+    white-space: nowrap;
+    z-index: 1050;
+    position: relative; /* 📍 Quan trọng: Đổi từ sticky sang relative */
+}
+.main-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0 10px; 
+    margin: 0;
+    min-width: max-content;
+    height: 100%;
+    position: relative; 
+}
+.main-menu li {
+    margin: 0; 
+}
+.main-menu a {
+    color: var(--color-text-white);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0 20px; 
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: none; 
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 2; 
+}
+.main-menu a:hover {
+    background-color: transparent;
+    color: var(--color-text-white); 
+    transform: none;
+}
+.main-menu a.active {
+    background-color: transparent;
+    border-bottom: none;
+    transform: none;
+    font-weight: 700;
+}
+
+/* --- CSS cho thanh trượt (MỚI) --- */
+.main-menu .menu-slider {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    height: 38px; /* Chiều cao của "viên thuốc" */
+    background-color: var(--color-primary-dark);
+    border-radius: var(--radius-pill); 
+    z-index: 1; /* Nằm dưới text */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/*
+================================
+== 3. LAYOUT NỘI DUNG CHÍNH (2 CỘT)
+================================
+*/
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 300px; 
+    gap: var(--gap-normal);
+    align-items: start;
+    width: var(--layout-width);
+>>>>>>> 97656b2 (Fix Code and update admin)
     max-width: 100%;
     margin: 20px auto 0 auto;
     padding: 0 20px;
 }
 
+<<<<<<< HEAD
 /* CÁC CLASS .sidebar-section VÀ .hot-number KHÔNG SỬ DỤNG ĐÃ BỊ XÓA */
 
 /* LEFT BANNER */
@@ -274,10 +554,29 @@ html {
     font-weight: 700;
     margin-bottom: 12px;
     border-left: 4px solid #e74c3c;
+=======
+/* Bỏ banner trái */
+.left-banner { display: none; }
+
+/* --- Nội dung giữa (giờ là cột trái) --- */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    min-width: 0; 
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--color-primary);
+>>>>>>> 97656b2 (Fix Code and update admin)
     padding-left: 10px;
     color: #333;
 }
 
+<<<<<<< HEAD
 /* Featured (1 to + 1 nhỏ bên phải) */
 .featured-news {
     display: grid;
@@ -383,11 +682,188 @@ html {
     transition: all 0.25s ease;
 }
 
+=======
+/*
+================================
+== 4. KHỐI TIN "HOT" KIỂU GENK
+================================
+*/
+.featured-box {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr; 
+    gap: var(--gap-normal);
+    background-color: var(--color-bg-white);
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+/* --- Tin Hero (1 tin lớn) --- */
+.hero-post {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+}
+.hero-post img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+.hero-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 20px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+.hero-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.hero-title a {
+    color: var(--color-text-white);
+}
+.hero-title a:hover {
+    color: #eee;
+}
+.hero-info .news-meta {
+    color: var(--color-text-white);
+    background-color: var(--color-primary);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* --- Lưới 4 tin nhỏ --- */
+.hot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2x2 grid */
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+}
+.hot-grid-item {
+    display: flex;
+    flex-direction: column;
+}
+.hot-grid-item img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+}
+.hot-grid-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.hot-grid-title a:hover {
+    color: var(--color-primary);
+}
+
+/*
+================================
+== 5. DÒNG TIN CHÍNH (FEED)
+================================
+*/
+.main-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1px; 
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* Card kiểu Feed (ảnh trái, chữ phải) */
+.feed-card {
+    display: grid;
+    grid-template-columns: 220px 1fr; 
+    gap: 20px;
+    background-color: var(--color-bg-white);
+    padding: 20px;
+    transition: background-color var(--transition-speed);
+}
+.feed-card:hover {
+    background-color: #fcfcfc;
+}
+.feed-card-image img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+.feed-card-info {
+    display: flex;
+    flex-direction: column;
+}
+.feed-card-info .news-meta {
+    font-size: 12px;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.feed-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 8px 0;
+}
+.feed-card-title a:hover {
+    color: var(--color-primary);
+}
+.feed-card-excerpt {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+/*
+================================
+== 6. SIDEBAR PHẢI
+================================
+*/
+.right-sidebar {
+    width: 300px; 
+    background: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    z-index: 10;
+}
+@supports (position: sticky) {
+    .right-sidebar {
+        position: sticky;
+        /* Sửa: Tính toán lại top (sticky menu không còn) */
+        top: 20px; 
+        align-self: flex-start;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+    }
+}
+.hot-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 18px 0;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 18px;
+}
+>>>>>>> 97656b2 (Fix Code and update admin)
 .hot-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
+<<<<<<< HEAD
 
 .hot-item:hover {
     background-color: #fff6f6;
@@ -494,16 +970,74 @@ html {
     padding-left: 0;
 }
 
+=======
+.hot-thumb {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+.hot-info {
+    flex: 1;
+    min-width: 0;
+}
+.hot-info h4 {
+    font-size: 0.95rem;
+    margin: 0 0 6px;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.hot-info h4 a {
+    color: #111;
+}
+.hot-info h4 a:hover {
+    color: var(--color-primary);
+}
+.hot-info .news-meta {
+    font-size: 13px;
+    color: var(--color-text-meta);
+}
+
+/*
+================================
+== 7. LIÊN HỆ & FOOTER
+================================
+*/
+.contact-section {
+    padding: 60px 0;
+    background: var(--color-contact-bg);
+}
+.contact-section .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 40px;
+    border-left: none;
+    padding-left: 0;
+}
+>>>>>>> 97656b2 (Fix Code and update admin)
 .contact-section .section-title::after {
     content: "";
     display: block;
     width: 60px;
     height: 3px;
+<<<<<<< HEAD
     background: #0073e6;
     margin: 12px auto 0 auto;
     border-radius: 2px;
 }
 
+=======
+    background: var(--color-contact-highlight);
+    margin: 12px auto 0 auto;
+    border-radius: 2px;
+}
+>>>>>>> 97656b2 (Fix Code and update admin)
 .contact-content {
     display: flex;
     flex-wrap: wrap;
@@ -511,13 +1045,17 @@ html {
     gap: 50px;
     align-items: flex-start;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97656b2 (Fix Code and update admin)
 .contact-info {
     flex: 1;
     min-width: 280px;
     max-width: 350px;
 }
 
+<<<<<<< HEAD
 .contact-info ul {
     list-style: none;
     padding: 0;
@@ -555,12 +1093,22 @@ html {
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
 }
 
+=======
+.contact-form { flex: 2; min-width: 300px; }
+.contact-form form {
+    background: var(--color-bg-white);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+>>>>>>> 97656b2 (Fix Code and update admin)
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 14px 16px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
+<<<<<<< HEAD
     border-radius: 8px;
     font-size: 15px;
     transition: 0.3s;
@@ -579,12 +1127,27 @@ html {
     resize: vertical;
 }
 
+=======
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    transition: var(--transition-speed);
+    font-family: var(--font-family);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-contact-highlight);
+    box-shadow: 0 0 8px rgba(0, 115, 230, 0.3);
+    outline: none;
+}
+.contact-form textarea { min-height: 120px; resize: vertical; }
+>>>>>>> 97656b2 (Fix Code and update admin)
 .contact-form .submit-button {
     width: 100%;
     padding: 14px;
     font-size: 16px;
     font-weight: bold;
     background: linear-gradient(to right, #0073e6, #00c6ff);
+<<<<<<< HEAD
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -593,23 +1156,43 @@ html {
     box-shadow: 0 4px 12px rgba(0, 115, 230, 0.3);
 }
 
+=======
+    color: var(--color-text-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-speed);
+    box-shadow: 0 4px 12px rgba(0, 115, 230, 0.3);
+}
+>>>>>>> 97656b2 (Fix Code and update admin)
 .contact-form .submit-button:hover {
     background: linear-gradient(to right, #005bb5, #0099cc);
 }
 
+<<<<<<< HEAD
 /* === FOOTER === */
 .footer {
     background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
     color: #b0b0b0;
+=======
+/* --- Footer --- */
+.footer {
+    background: var(--color-footer-bg);
+    color: var(--color-footer-text);
+>>>>>>> 97656b2 (Fix Code and update admin)
     padding: 60px 0 40px;
     margin-top: 60px;
     font-size: 14px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97656b2 (Fix Code and update admin)
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
+<<<<<<< HEAD
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -617,10 +1200,19 @@ html {
 
 .footer-section h4 {
     color: #fff;
+=======
+    max-width: var(--layout-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer-section h4 {
+    color: var(--color-text-white);
+>>>>>>> 97656b2 (Fix Code and update admin)
     margin-bottom: 20px;
     font-size: 18px;
     font-weight: 600;
 }
+<<<<<<< HEAD
 
 .footer-section a {
     color: #b0b0b0;
@@ -629,6 +1221,48 @@ html {
 
 .footer-section a:hover {
     color: #e74c3c;
+=======
+.footer-section a { color: var(--color-footer-text); }
+.footer-section a:hover { color: var(--color-primary); }
+
+/* Cập nhật CSS cho Footer (Fix Bullets) */
+.footer-section ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0;
+}
+.footer-section .footer-contact-info li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.6;
+    color: var(--color-footer-text); 
+}
+.footer-section .footer-contact-info li i {
+    width: 15px; 
+    margin-right: 12px;
+    color: var(--color-primary); 
+    margin-top: 5px; 
+}
+.footer-section .footer-quick-links li {
+    margin-bottom: 12px;
+}
+.footer-section .footer-quick-links a {
+    display: flex;
+    align-items: center;
+    color: var(--color-footer-text);
+    font-size: 14px; 
+}
+.footer-section .footer-quick-links a:hover {
+    color: var(--color-primary); 
+    padding-left: 5px; 
+}
+.footer-section .footer-quick-links a i {
+    width: 15px;
+    margin-right: 10px;
+    color: var(--color-primary); 
+    font-size: 0.7rem; 
+>>>>>>> 97656b2 (Fix Code and update admin)
 }
 
 .social-links {
@@ -636,7 +1270,10 @@ html {
     gap: 15px;
     margin-top: 10px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97656b2 (Fix Code and update admin)
 .social-links a {
     width: 40px;
     height: 40px;
@@ -645,6 +1282,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     transition: all 0.3s ease;
 }
 
@@ -654,6 +1292,16 @@ html {
     transform: translateY(-2px);
 }
 
+=======
+    transition: all var(--transition-speed);
+    font-size: 1rem; 
+}
+.social-links a:hover {
+    background: var(--color-primary);
+    color: var(--color-text-white);
+    transform: translateY(-2px);
+}
+>>>>>>> 97656b2 (Fix Code and update admin)
 .footer-bottom {
     text-align: center;
     border-top: 1px solid #444;
@@ -663,9 +1311,269 @@ html {
     font-size: 13px;
 }
 
+<<<<<<< HEAD
 @media (max-width: 768px) {
+=======
+/*
+================================
+== 8. CSS TRANG TÌM KIẾM & DANH MỤC
+================================
+*/
+.search-results-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 10px;
+}
+.no-results {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    padding: 50px 20px;
+    background: var(--color-bg-white);
+    border-radius: var(--radius-sm);
+}
+/* Card cho trang search/category (ảnh trên, chữ dưới) */
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.search-results-grid .news-card {
+    background: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.search-results-grid .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card-hover);
+}
+.search-results-grid .news-card img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+/* Ẩn các class cũ không dùng ở trang chủ */
+.news-grid { display: none; }
+.featured-news { display: none; }
+
+/*
+================================
+== 9. CSS LOGIN MODAL (MỚI)
+================================
+*/
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.login-modal-content {
+    background: var(--color-bg-white);
+    padding: 30px 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 380px;
+    max-width: 90%;
+    position: relative;
+    text-align: center;
+    animation: zoomIn 0.3s ease;
+}
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.close-button:hover {
+    color: #333;
+}
+.login-modal-content h2 {
+    color: var(--color-primary);
+    margin-bottom: 25px;
+}
+.login-modal-content .input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.login-modal-content .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.login-modal-content .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+}
+.login-modal-content .submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--color-primary);
+    color: var(--color-text-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+.login-modal-content .submit-button:hover {
+    background: var(--color-primary-dark);
+}
+.modal-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+.modal-links a {
+    color: var(--color-contact-highlight);
+}
+.login-error {
+    color: red;
+    background: #fff0f0;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 15px;
+    display: none; 
+}
+
+/*
+================================
+== 10. RESPONSIVE (ĐÃ TỐI ƯU)
+================================
+*/
+
+/* --- Tối ưu cho Máy tính bảng (Tablet) --- */
+@media (max-width: 900px) {
+    .main-content {
+        /* Chuyển sang 1 cột */
+        grid-template-columns: 1fr;
+    }
+    .right-sidebar {
+        position: static;
+        width: 100%;
+        max-height: none;
+        margin-top: 0; 
+    }
+    @supports (position: sticky) {
+        .right-sidebar {
+            position: static; 
+        }
+    }
+    .featured-box {
+        /* Chuyển 1+4 grid thành 1 cột */
+        grid-template-columns: 1fr;
+    }
+    .hot-grid {
+        grid-template-columns: 1fr 1fr; /* 4 tin nhỏ vẫn 2 cột */
+    }
+}
+
+/* --- Tối ưu cho Điện thoại (Mobile) --- */
+@media (max-width: 768px) {
+    /* Header */
+    .header-top {
+        flex-wrap: wrap; 
+        justify-content: center; 
+        padding: 0 15px 10px 15px;
+    }
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .search-box {
+        order: 3; 
+        width: 100%;
+        margin-top: 10px;
+    }
+    .search-box input[type="text"] {
+        width: 100%;
+        min-width: 150px;
+    }
+    .search-box input[type="text"]:focus {
+        width: 100%;
+    }
+    .admin-link {
+        order: 2; 
+        margin: 0;
+    }
+
+    /* Footer */
+>>>>>>> 97656b2 (Fix Code and update admin)
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
+<<<<<<< HEAD
+=======
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* --- Tối ưu cho điện thoại nhỏ --- */
+@media (max-width: 600px) {
+     .search-box {
+        flex-direction: column;
+        gap: 10px;
+     }
+     .search-box input[type="text"],
+     .search-box button {
+        width: 100%;
+     }
+     .container, .main-content {
+        padding: 0 10px; /* Giảm padding lề cho màn hình siêu nhỏ */
+     }
+     
+     /* Chuyển card feed sang dạng dọc */
+     .feed-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+     }
+     .feed-card-image img {
+        aspect-ratio: 16 / 9; /* Giữ tỷ lệ này */
+     }
+     .feed-card-title {
+        font-size: 1.1rem;
+     }
+     
+     /* Lưới 4 tin hot cũng về 1 cột */
+     .hot-grid {
+        grid-template-columns: 1fr;
+     }
+>>>>>>> 97656b2 (Fix Code and update admin)
 }

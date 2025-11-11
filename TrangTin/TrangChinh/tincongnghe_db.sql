@@ -34,6 +34,10 @@ CREATE TABLE `baiviet` (
   `mo_ta_ngan` text COLLATE utf8mb4_unicode_ci,
   `hinh_anh` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_linhvuc` int(11) DEFAULT NULL,
+<<<<<<< HEAD
+=======
+  `id_tacgia` int(11) DEFAULT NULL,
+>>>>>>> 97656b2 (Fix Code and update admin)
   `ngay_dang` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -41,6 +45,7 @@ CREATE TABLE `baiviet` (
 -- Đang đổ dữ liệu cho bảng `baiviet`
 --
 
+<<<<<<< HEAD
 INSERT INTO `baiviet` (`id`, `tieu_de`, `mo_ta_ngan`, `hinh_anh`, `id_linhvuc`, `ngay_dang`) VALUES
 (1, 'iPhone 17 Pro Max ra mắt', 'Apple chính thức trình làng iPhone mới với nhiều cải tiến.', 'images/ip177.png', 2, '2025-10-24 13:00:00'),
 (2, 'Laptop gaming Alienware 2025', 'Alienware 2025 sở hữu CPU Intel thế hệ mới và GPU RTX 5090.', 'images/alienware2025.png', 3, '2025-10-24 12:59:50'),
@@ -82,6 +87,19 @@ INSERT INTO `baiviet` (`id`, `tieu_de`, `mo_ta_ngan`, `hinh_anh`, `id_linhvuc`, 
 (38, 'ChatGPT App cập nhật giao diện mới trên iOS và Android', 'Ứng dụng ChatGPT được nâng cấp giao diện hiện đại, hỗ trợ nhập liệu bằng giọng nói.', 'images/chatgptapp2025.png', 4, '2025-10-22 09:00:00'),
 (39, 'Canva AI ra mắt công cụ thiết kế logo tự động', 'Canva tích hợp AI giúp người dùng tạo logo chuyên nghiệp chỉ trong vài giây.', 'images/canvaai.png', 4, '2025-10-22 10:30:00'),
 (40, 'Zalo cập nhật tính năng nhắc lịch thông minh', 'Zalo giới thiệu tính năng mới cho phép tự động nhắc hẹn dựa trên tin nhắn.', 'images/zalo_smartreminder.png', 4, '2025-10-22 12:15:00');
+=======
+INSERT INTO `baiviet` (`id`, `tieu_de`, `mo_ta_ngan`, `hinh_anh`, `id_linhvuc`, `id_tacgia`, `ngay_dang`) VALUES
+(1, 'iPhone 17 Pro Max ra mắt', 'Apple chính thức trình làng iPhone mới với nhiều cải tiến.', 'images/ip177.png', 2, NULL, '2025-10-24 13:00:00'),
+(2, 'Laptop gaming Alienware 2025', 'Alienware 2025 sở hữu CPU Intel thế hệ mới và GPU RTX 5090.', 'images/alienware2025.png', 3, NULL, '2025-10-24 12:59:50'),
+(3, 'Meta ra mắt kính thực tế ảo mới', 'Kính VR của Meta mang trải nghiệm sống động hơn với cảm biến 3D tiên tiến.', 'images/meta-vrr.png', 1, NULL, '2025-10-24 12:58:50'),
+(4, '10 ứng dụng AI miễn phí giúp học tập', 'Danh sách các ứng dụng AI hữu ích cho sinh viên và lập trình viên.', 'images/ai-apps.png', 4, NULL, '2025-10-24 12:57:50'),
+(5, 'Top game hot tháng 9', 'Tổng hợp các tựa game được chơi nhiều nhất trong tháng 9.', 'images/game-sep.png', NULL, NULL, '2025-09-24 12:36:50'),
+(6, 'Đánh giá chi tiết laptop Dell XPS 13 9350 2025', 'Mẫu laptop mới của Dell với thiết kế mỏng nhẹ và hiệu năng đỉnh cao nhờ chip Intel Core Ultra mới.', 'images/laptop.png', 3, NULL, '2025-10-24 12:56:00'),
+(7, 'Samsung ra mắt Galaxy Z Fold 7', 'Chiếc điện thoại gập thế hệ mới của Samsung có nhiều cải tiến về màn hình và độ bền bản lề.', 'images/GalaxyZ.png', 2, NULL, '2025-10-24 12:55:30'),
+(8, 'Xu hướng phát triển của trí tuệ nhân tạo tạo sinh', 'AI tạo sinh đang thay đổi nhiều ngành công nghiệp, từ nghệ thuật đến lập trình.', 'images/AIs.png', 1, NULL, '2025-10-24 12:54:00'),
+(9, 'Top 5 ứng dụng quản lý công việc hiệu quả nhất', 'Danh sách các ứng dụng giúp bạn sắp xếp công việc và tăng năng suất làm việc nhóm.', 'images/TOP.png', 4, NULL, '2025-10-24 12:53:15'),
+(10, 'Google Pixel 9: Có gì mới?', 'Những nâng cấp đáng chú ý về camera và các tính năng AI độc quyền trên dòng Pixel mới.', 'images/pixel9.png', 2, NULL, '2025-10-15 10:05:55');
+>>>>>>> 97656b2 (Fix Code and update admin)
 
 -- --------------------------------------------------------
 
@@ -119,6 +137,7 @@ CREATE TABLE `content_blocks` (
 
 INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `block_content`) VALUES
 (1, 1, 10, 'heading', 'iPhone 17 có gì mới?'),
+<<<<<<< HEAD
 (2, 1, 20, 'paragraph', 'Dòng iPhone 17 giới thiệu sự thay đổi đáng kể so với thế hệ trước và bao gồm bốn phiên bản chính: iPhone 17 tiêu chuẩn, iPhone Air, iPhone 17 Pro và iPhone 17 Pro Max. Những cập nhật này không chỉ nâng cao chất lượng sử dụng mà còn đáp ứng nhu cầu đa dạng của người dùng, từ nhu cầu cơ bản đến chuyên sâu về nhiếp ảnh hay chơi game. Dưới đây là các điểm nổi bật của iPhone 17 mà bạn nên biết.'),
 (3, 1, 30, 'heading', 'Sự xuất hiện của iPhone Air'),
 (4, 1, 40, 'paragraph', 'iPhone Air đánh dấu một bước ngoặt trong triết lý thiết kế của Apple, với độ mỏng ấn tượng chỉ 5.6mm và trọng lượng nhẹ hơn đáng kể nhờ vào khung viền làm từ titanium cấp 5. Phiên bản này được ra mắt để thay thế cho vị trí của dòng Plus trước đây, mang đến một lựa chọn màn hình lớn nhưng vẫn đảm bảo sự thanh lịch, mỏng nhẹ và bền bỉ với lớp kính Ceramic Shield ở cả hai mặt.'),
@@ -305,6 +324,34 @@ INSERT INTO `content_blocks` (`id`, `id_baiviet`, `block_order`, `block_type`, `
 (299, 9, 160, 'image', 'images/app-notion-workspace.jpg'),
 (300, 9, 170, 'heading', 'Kết luận'),
 (301, 9, 180, 'paragraph', 'Mỗi ứng dụng đều có điểm mạnh riêng và phù hợp với những nhu cầu khác nhau. Trello và Todoist tuyệt vời cho sự đơn giản và cá nhân, trong khi Asana và Monday.com mạnh mẽ hơn cho quản lý đội nhóm. Notion là lựa chọn linh hoạt nhất cho những ai muốn xây dựng một hệ thống riêng. Hãy thử nghiệm và chọn ra công cụ phù hợp nhất để giúp bạn làm việc hiệu quả hơn.');
+=======
+(2, 1, 20, 'paragraph', 'Dòng iPhone 17 giới thiệu sự thay đổi đáng kể so với thế hệ trước...'),
+(3, 1, 30, 'heading', 'Sự xuất hiện của iPhone Air'),
+(4, 1, 40, 'paragraph', 'iPhone Air đánh dấu một bước ngoặt trong triết lý thiết kế của Apple...'),
+(5, 1, 50, 'image', 'images/iphone17-air.jpg'),
+(6, 1, 60, 'paragraph', 'Về cấu hình, iPhone Air sở hữu màn hình 6.5 inch...'),
+(36, 2, 10, 'paragraph', 'Nếu bạn đang tìm một chiếc laptop gaming Dell, không thể không nhắc đến Alienware...'),
+(37, 2, 20, 'heading', '1. Thiết kế \"Legend\" - Di sản từ tương lai'),
+(38, 2, 30, 'paragraph', 'Các dòng máy Alienware, đặc biệt là series X và M, đều tuân theo triết lý thiết kế...'),
+(39, 2, 40, 'image', 'images/laptop1.jpg'),
+(40, 2, 50, 'paragraph', '<strong>Thiết kế biểu tượng:</strong> Giúp bạn nổi bật ở bất kỳ đâu...'),
+(56, 3, 10, 'paragraph', 'Sự thành công vang dội của Meta Quest 3 đã thực sự định hình lại thị trường...'),
+(57, 3, 20, 'heading', 'Meta Quest 4: Ngày phát hành dự kiến'),
+(58, 3, 30, 'paragraph', 'Việc dự đoán ngày phát hành của Meta phụ thuộc nhiều vào việc phân tích chu kỳ...'),
+(74, 4, 10, 'paragraph', 'Trí tuệ nhân tạo (AI) đang thay đổi cách chúng ta học tập và làm việc...'),
+(75, 4, 20, 'heading', '1. Socratic by Google'),
+(76, 4, 30, 'paragraph', 'Đây là một trợ lý học tập tuyệt vời được Google hậu thuẫn...'),
+(77, 4, 40, 'image', 'images/ai-app-socratic.jpg'),
+(220, 6, 10, 'paragraph', 'Dell XPS 13 9350 (2025) tiếp tục khẳng định vị thế là một trong những chiếc ultrabook...'),
+(221, 6, 20, 'heading', 'Màn hình sắc nét, tốc độ quét cao'),
+(222, 6, 30, 'paragraph', 'Trải nghiệm thị giác trên Dell XPS 13 9350 là một điểm nhấn đắt giá...'),
+(233, 7, 10, 'heading', '1. Giá Samsung Galaxy Z Fold 7 bao nhiêu?'),
+(234, 7, 20, 'paragraph', 'Samsung Galaxy Z Fold 7 chính thức mở bán với giá khởi điểm 46.990.000 đồng...'),
+(266, 8, 10, 'paragraph', 'Trí tuệ nhân tạo tạo sinh (Generative AI) đã vượt qua ranh giới của những phòng thí nghiệm...'),
+(267, 8, 20, 'heading', '1. Mô hình đa phương thức (Multimodal Models): Phá vỡ rào cản giao tiếp'),
+(284, 9, 10, 'paragraph', 'Trong môi trường làm việc hiện đại, việc theo dõi và quản lý công việc...'),
+(285, 9, 20, 'heading', '1. Trello: Trực quan và Linh hoạt');
+>>>>>>> 97656b2 (Fix Code and update admin)
 
 -- --------------------------------------------------------
 
@@ -330,6 +377,31 @@ INSERT INTO `linhvuc` (`id`, `ten_linhvuc`, `mo_ta`, `ngay_tao`) VALUES
 (4, 'Ứng dụng', 'App di động và phần mềm hữu ích', '2025-09-24 12:36:50');
 
 --
+<<<<<<< HEAD
+=======
+-- ======================================================
+-- == PHẦN BỔ SUNG CHO HỆ THỐNG ADMIN & PHÂN QUYỀN ==
+-- ======================================================
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Luôn lưu mật khẩu đã hash',
+  `ho_ten` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=Tác giả, 1=Admin',
+  `ngay_tao` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+>>>>>>> 97656b2 (Fix Code and update admin)
 -- Chỉ mục cho các bảng đã đổ
 --
 
@@ -338,7 +410,12 @@ INSERT INTO `linhvuc` (`id`, `ten_linhvuc`, `mo_ta`, `ngay_tao`) VALUES
 --
 ALTER TABLE `baiviet`
   ADD PRIMARY KEY (`id`),
+<<<<<<< HEAD
   ADD KEY `id_linhvuc` (`id_linhvuc`);
+=======
+  ADD KEY `id_linhvuc` (`id_linhvuc`),
+  ADD KEY `id_tacgia` (`id_tacgia`);
+>>>>>>> 97656b2 (Fix Code and update admin)
 
 --
 -- Chỉ mục cho bảng `binhluan`
@@ -361,6 +438,17 @@ ALTER TABLE `linhvuc`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
+=======
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+>>>>>>> 97656b2 (Fix Code and update admin)
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -389,6 +477,15 @@ ALTER TABLE `linhvuc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+<<<<<<< HEAD
+=======
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+>>>>>>> 97656b2 (Fix Code and update admin)
 -- Các ràng buộc cho các bảng đã đổ
 --
 
@@ -396,7 +493,12 @@ ALTER TABLE `linhvuc`
 -- Các ràng buộc cho bảng `baiviet`
 --
 ALTER TABLE `baiviet`
+<<<<<<< HEAD
   ADD CONSTRAINT `baiviet_ibfk_1` FOREIGN KEY (`id_linhvuc`) REFERENCES `linhvuc` (`id`) ON DELETE SET NULL;
+=======
+  ADD CONSTRAINT `baiviet_ibfk_1` FOREIGN KEY (`id_linhvuc`) REFERENCES `linhvuc` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `fk_baiviet_users` FOREIGN KEY (`id_tacgia`) REFERENCES `users` (`id`) ON DELETE SET NULL;
+>>>>>>> 97656b2 (Fix Code and update admin)
 
 --
 -- Các ràng buộc cho bảng `binhluan`
@@ -413,4 +515,8 @@ COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+<<<<<<< HEAD
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+=======
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+>>>>>>> 97656b2 (Fix Code and update admin)
