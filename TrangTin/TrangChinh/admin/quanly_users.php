@@ -112,7 +112,7 @@ if (isset($_GET['error'])) {
         
         <div class="form-container">
             <?= $message ?>
-            <h2><?= ($action === 'edit' && $item) ? 'Sửa người dùng' : 'Thêm người dùng mới' ?></h2>
+            <h2><?= ($action === 'edit' && $item) ? 'Sửa người dùng' : 'Thêm người dùng mới' ?></h2></br>
             <form action="quanly_users.php?action=save" method="POST">
                 <input type="hidden" name="id" value="<?= $item['id'] ?? 0 ?>">
                 <div class="form-group">
